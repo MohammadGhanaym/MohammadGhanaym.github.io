@@ -1,0 +1,10 @@
+Dear Hiring Manager,
+
+I am writing to express my interest in the Data Analyst position at COMPANY_NAME. I hold a bachelor's degree in Computer Engineering and have completed several data analysis courses from Udacity and DataCamp to strengthen my skills. I am continuously working on improving my abilities by balancing theoretical knowledge with hands-on experience.
+
+My dedication and perseverance led me to work as a freelance data analyst, where I gained valuable experience working with real-world datasets. Freelancing has helped me discover my strengths, especially my ability to meet deadlines, adapt quickly, and learn new tools or techniques when needed. In several projects, I successfully picked up new skills mid-way and applied them effectively to deliver meaningful results.
+
+I would welcome the opportunity to bring my passion for data and my problem-solving mindset to your team. Thank you for considering my application. I look forward to the possibility of contributing through data-driven insights.
+
+Best regards,
+Mohamed

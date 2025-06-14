@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Data Analyst Portfolio</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles specific to the projects page */
+        .projects-section {
+            margin-top: 100px;
+        }
+        
+        .projects-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .projects-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .projects-header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .project-categories {
+            margin-bottom: 40px;
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .back-to-home {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <h1>Your Name</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="index.html" class="active">Projects</a></li>
+                <li><a href="../feedback/index.html">Client Feedback</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="projects-header">
+                <h1>My Projects</h1>
+                <p>Explore my data analysis projects showcasing different skills and techniques.</p>
+            </div>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="data-analysis">Data Analysis</button>
+                <button class="filter-btn" data-filter="visualization">Visualization</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+            </div>
+            
+            <div class="project-categories">
+                <!-- Data Analysis Projects -->
+                <h3 class="category-title">Data Analysis Projects</h3>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card" data-category="data-analysis">
+                        <div class="project-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Sales Data Analysis</h3>
+                            <p>Analysis of retail sales data to identify trends and provide recommendations for inventory optimization.</p>
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>Matplotlib</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="project1.html" class="btn small-btn">View Details</a>
+                                <a href="https://github.com/yourusername/project1" target="_blank" class="github-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="project-card" data-category="data-analysis">
+                        <div class="project-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-file-csv"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>E-commerce Data Cleaning</h3>
+                            <p>Comprehensive data cleaning and preprocessing of an e-commerce dataset for analysis.</p>
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>NumPy</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="project4.html" class="btn small-btn">View Details</a>
+                                <a href="https://github.com/yourusername/project4" target="_blank" class="github-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Visualization Projects -->
+                <h3 class="category-title">Data Visualization Projects</h3>
+                <div class="projects-grid">
+                    <!-- Project 2 -->
+                    <div class="project-card" data-category="visualization">
+                        <div class="project-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Customer Segmentation Dashboard</h3>
+                            <p>Interactive Tableau dashboard for customer segmentation based on purchasing behavior.</p>
+                            <div class="project-tags">
+                                <span>Tableau</span>
+                                <span>SQL</span>
+                                <span>Excel</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="project2.html" class="btn small-btn">View Details</a>
+                                <a href="https://github.com/yourusername/project2" target="_blank" class="github-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="project-card" data-category="visualization">
+                        <div class="project-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Financial Performance Visualization</h3>
+                            <p>Interactive visualization of financial KPIs and performance metrics for executive dashboards.</p>
+                            <div class="project-tags">
+                                <span>Power BI</span>
+                                <span>DAX</span>
+                                <span>Excel</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="project5.html" class="btn small-btn">View Details</a>
+                                <a href="https://github.com/yourusername/project5" target="_blank" class="github-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Machine Learning Projects -->
+                <h3 class="category-title">Machine Learning Projects</h3>
+                <div class="projects-grid">
+                    <!-- Project 3 -->
+                    <div class="project-card" data-category="ml">
+                        <div class="project-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Predictive Analytics Model</h3>
+                            <p>Predictive model to forecast customer churn using historical data and machine learning.</p>
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>SciKit-Learn</span>
+                                <span>Pandas</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="project3.html" class="btn small-btn">View Details</a>
+                                <a href="https://github.com/yourusername/project3" target="_blank" class="github-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="project-card" data-category="ml">
+                        <div class="project-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Sentiment Analysis Model</h3>
+                            <p>NLP model to analyze customer reviews and feedback for sentiment classification.</p>
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>NLTK</span>
+                                <span>TensorFlow</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="project6.html" class="btn small-btn">View Details</a>
+                                <a href="https://github.com/yourusername/project6" target="_blank" class="github-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="back-to-home">
+                <a href="../index.html" class="btn primary-btn">Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/scripts.js"></script>
+    <script>
+        // Additional script for project page filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const categories = document.querySelectorAll('.category-title');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    const filter = btn.getAttribute('data-filter');
+                    
+                    // Show/hide categories based on filter
+                    if (filter === 'all') {
+                        categories.forEach(cat => cat.style.display = 'block');
+                    } else {
+                        categories.forEach(cat => {
+                            // Check if category has any visible projects after filtering
+                            const hasVisibleProjects = Array.from(cat.nextElementSibling.children)
+                                .some(card => card.getAttribute('data-category') === filter);
+                            
+                            cat.style.display = hasVisibleProjects ? 'block' : 'none';
+                        });
+                    }
+                    
+                    // Show/hide project cards based on filter
+                    projectCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                        } else if (card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

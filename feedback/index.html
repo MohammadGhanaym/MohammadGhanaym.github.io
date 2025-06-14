@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Feedback - Data Analyst Portfolio</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">    <style>        /* Additional styles specific to the feedback page */
+        body {
+            background-color: #fafafa;
+            background-image: 
+                radial-gradient(#e0e0e0 1px, transparent 1px),
+                radial-gradient(#e0e0e0 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+        
+        .feedback-section {
+            margin-top: 100px;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 60px;
+            margin-bottom: 70px;
+            padding: 0 20px;
+        }
+        
+        .feedback-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .feedback-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            animation: fadeIn 1s ease;
+        }
+        
+        .feedback-header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1.2s ease;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes dropIn {
+            0% { opacity: 0; transform: translateY(-20px) rotate(0deg); }
+            70% { transform: translateY(10px) rotate(var(--rotate)); }
+            100% { opacity: 1; transform: translateY(0) rotate(var(--rotate)); }
+        }
+        
+        /* Tape-like testimonial design */
+        .testimonial {
+            position: relative;
+            background-color: #fff;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            padding: 0;
+            border-radius: 4px;
+            transform: rotate(-1.5deg);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.04);
+            --rotate: -1.5deg;
+            animation: dropIn 0.8s ease forwards;
+            animation-delay: calc(var(--i) * 0.15s);
+            opacity: 0;
+        }
+        
+        .testimonial:nth-child(even) {
+            transform: rotate(1.5deg);
+            --rotate: 1.5deg;
+        }
+        
+        .testimonial:hover {
+            transform: rotate(0) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+          /* Tape effect */
+        .testimonial::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 35px;
+            background-color: rgba(255,255,255,0.7);
+            border: 1px dashed rgba(0,0,0,0.15);
+            box-shadow: 0 0 10px rgba(0,0,0,0.08);
+            z-index: 10;
+        }
+        
+        /* Second tape for added realism */
+        .testimonial::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 30px;
+            width: 80px;
+            height: 28px;
+            background-color: rgba(255,255,255,0.7);
+            border: 1px dashed rgba(0,0,0,0.15);
+            box-shadow: 0 0 10px rgba(0,0,0,0.08);
+            transform: rotate(-5deg);
+            z-index: 10;
+        }
+          /* New image-only style */
+        .testimonial-screenshot-only {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border: 10px solid white;
+        }
+        
+        .testimonial-screenshot-only img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05) inset;
+        }
+        
+        /* Add a subtle film grain effect */
+        .testimonial-screenshot-only::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABN0lEQVRoQ+3ZwQ0CIRiF4d9x0CZ0CIewA23EWuzAGmzBEnQIO8EmOBTZwGYTiLIPMR+8JyGRMHwPCEzLOeeKEUKBEGKDEBKEhJAQIgRItIQQIUCiJYQIARItIUQIkGgJIUKAREsIEQIkWkKIECDREkKEAIlWdMh2vSqfaZrKIzKMw9vjqrYtj6376ee77Xap/f7w/vlwu7XnnM/tOrvV8nerbVP+rAqS4pxl+/PFY73ZvM3I9ThfhmG8vv+d1z/dcZ4vwzC1P+fUeO+7KpAU5KfQLsUMDekaXFUIBbICsQrZB4a0376rApnHWQ1iFQKFECHhGhFChACJlhAiBEi0hBAhQKIlhAgBEi0hRAiQaAkhQoBESwgRAiRaQogQINESQoQAiZYQIgRItIQQIUCiJYQIARKtx4TkAdauKNnKqHtAAAAAAElFTkSuQmCC');
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .testimonial-header {
+            background-color: #f8f8f8;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+          .testimonial-screenshot {
+            width: 100%;
+            height: 280px;
+            background-color: #f9f9f9;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .testimonial-screenshot img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .screenshot-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        
+        .screenshot-placeholder i {
+            font-size: 40px;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+        
+        .screenshot-placeholder p {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .testimonial-content {
+            padding: 25px;
+            position: relative;
+            border-top: 1px solid #eee;
+            background-color: #fdfdfd;
+        }
+        
+        .rating {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin: 0 0 15px;
+        }
+        
+        .client-quote {
+            font-style: italic;
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .project-info {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .project-info h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        
+        .project-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #eee;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            margin-right: 15px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .author-avatar i {
+            font-size: 24px;
+            color: #aaa;
+        }
+        
+        .back-to-home {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">            <div class="logo">
+                <h1>Mohammad Ghanaym</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="index.html" class="active">Client Feedback</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Feedback Section -->
+    <section class="feedback-section">
+        <div class="container">            <div class="feedback-header">
+                <h1>Client Feedback</h1>
+                <p>Feedback from clients I've worked with</p>
+            </div><div class="testimonial-grid">                <!-- Testimonial 1 -->
+                <div class="testimonial" style="--i:1">
+                    <div class="testimonial-screenshot-only">
+                        <img src="../mydata/Clients Feedback/feedback1.PNG" alt="Client Feedback">
+                    </div>
+                </div>                <!-- Testimonial 2 -->
+                <div class="testimonial" style="--i:2">
+                    <div class="testimonial-screenshot-only">
+                        <img src="../mydata/Clients Feedback/feedback2.PNG" alt="Client Feedback">
+                    </div>
+                </div>                  <!-- Testimonial 3 -->
+                <div class="testimonial" style="--i:3">
+                    <div class="testimonial-screenshot-only">
+                        <img src="../mydata/Clients Feedback/feedback3.PNG" alt="Client Feedback">
+                    </div>
+                </div>                <!-- Testimonial 4 -->
+                <div class="testimonial" style="--i:4">
+                    <div class="testimonial-screenshot-only">
+                        <img src="../mydata/Clients Feedback/feedback4.PNG" alt="Client Feedback">
+                    </div>
+                </div>                <!-- Testimonial 5 -->
+                <div class="testimonial" style="--i:5">
+                    <div class="testimonial-screenshot-only">
+                        <img src="../mydata/Clients Feedback/png-transparent-freelancer-com-upwork-logo-job-others-blue-text-logo.png" alt="Freelancer Logo" style="padding: 30px;">
+                    </div>
+                </div>
+            </div>
+              <div class="back-to-home">
+                <a href="../index.html" class="btn primary-btn" style="animation: fadeIn 1.5s ease;">Back to Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>&copy; 2023 Mohammad Ghanaym. All Rights Reserved.</p>
+                </div>                <div class="social-links">
+                    <a href="https://linkedin.com/in/ghanaym" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/MohammadGhanaym" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.freelancer.com/u/MohammadGhanaym" target="_blank"><i class="fab fa-freelancer"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/scripts.js"></script>
+</body>
+</html>
