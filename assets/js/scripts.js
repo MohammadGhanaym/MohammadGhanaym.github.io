@@ -114,7 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-      // Testimonial interactions
+    
+    // Testimonial interactions
     const testimonials = document.querySelectorAll('.testimonial');
     
     testimonials.forEach(testimonial => {
@@ -140,5 +141,38 @@ document.addEventListener('DOMContentLoaded', function() {
         const randomAngle = Math.random() * 0.5 - 0.25; // Small random angle between -0.25 and 0.25 degrees
         const baseAngle = [...testimonials].indexOf(testimonial) % 2 === 0 ? -1.5 : 1.5;
         testimonial.style.transform = `rotate(${baseAngle + randomAngle}deg)`;
+    });
+    
+    // Tape Item Interactions
+    const tapeItems = document.querySelectorAll('.tape-item');
+    
+    tapeItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'rotate(0) scale(1.05)';
+            this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.2)';
+            this.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            this.style.zIndex = '10';
+            
+            // Pause the animation when hovering
+            document.querySelector('.feedback-tape').style.animationPlayState = 'paused';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            // Reset to original rotation based on index
+            const isEven = [...tapeItems].indexOf(this) % 2 === 0;
+            const baseAngle = isEven ? -1.5 : 1.5;
+            this.style.transform = `rotate(${baseAngle}deg)`;
+            this.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.12)';
+            this.style.zIndex = '1';
+            
+            // Resume the animation when not hovering
+            document.querySelector('.feedback-tape').style.animationPlayState = 'running';
+        });
+        
+        // Add a slight random rotation variation for a more natural look
+        const randomAngle = Math.random() * 1 - 0.5; // Random angle between -0.5 and 0.5 degrees
+        const isEven = [...tapeItems].indexOf(item) % 2 === 0;
+        const baseAngle = isEven ? -1.5 : 1.5;
+        item.style.transform = `rotate(${baseAngle + randomAngle}deg)`;
     });
 });
