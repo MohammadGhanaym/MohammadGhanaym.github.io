@@ -913,6 +913,93 @@ footer {
     background: white;
 }
 
+/* Feedback Gallery Section */
+.feedback-gallery {
+    background-color: #fafafa;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Static Gallery instead of scrolling tape */
+.feedback-tape-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.feedback-tape {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.tape-item {
+    position: relative;
+    background-color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    border: 10px solid white;
+    width: 320px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: rotate(var(--rotate, -1deg));
+    transition: all 0.3s ease;
+}
+
+.tape-item:nth-child(even) {
+    --rotate: 1deg;
+}
+
+.tape-item:hover {
+    transform: rotate(0) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+/* Tape effect */
+.tape-item::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 30px;
+    background-color: rgba(255,255,255,0.8);
+    border: 1px dashed rgba(0,0,0,0.15);
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    z-index: 10;
+}
+
+.tape-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Freelancer logo specific style */
+.freelancer-logo {
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+
+.freelancer-logo img {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+/* View more button */
+.feedback-gallery .view-more {
+    text-align: center;
+    margin-top: 40px;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
     .hero-content h1 {
