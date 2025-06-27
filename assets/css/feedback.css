@@ -24,8 +24,8 @@
     position: relative;
     background-color: white;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 25px 25px 35px 25px; /* Increased padding for better framing */
+    border-radius: 12px;
+    padding: 30px 30px 40px 30px; /* Increased padding for better framing */
     border: 1px solid #eee;
     max-width: 520px; /* Slightly wider to accommodate feedback screenshots */
     margin: 0 auto;

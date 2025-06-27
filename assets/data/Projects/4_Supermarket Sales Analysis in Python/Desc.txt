@@ -1,0 +1,10 @@
+Title: Supermarket Sales Analysis
+Desc: In this project, I analyzed a dataset related to a supermarket. We focused on branch performance, revenue trends, product line ratings per branch, and the impact of customer type on revenue.
+Skills Used:
+Python (Pandas, NumPy, Matplotlib, Seaborn)
+Descriptive Statistics
+Exploratory Data Analysis (EDA)
+Data Visualization and Reporting
+Data Storytelling
+
+Github: https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Supermarket%20Sales%20Analysis%20in%20Python

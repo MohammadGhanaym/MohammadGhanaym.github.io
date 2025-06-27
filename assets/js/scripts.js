@@ -21,29 +21,16 @@ document.addEventListener('DOMContentLoaded', function() {
         burger.classList.toggle('toggle');
     });
     
-    // Project Filtering
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    // Project card hover effects
     const projectCards = document.querySelectorAll('.project-card');
     
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterBtns.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            btn.classList.add('active');
-            
-            const filter = btn.getAttribute('data-filter');
-            
-            projectCards.forEach(card => {
-                if (filter === 'all') {
-                    card.style.display = 'block';
-                } else if (card.getAttribute('data-category') === filter) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.classList.add('hovered');
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.classList.remove('hovered');
         });
     });
     
