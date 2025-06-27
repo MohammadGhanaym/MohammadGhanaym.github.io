@@ -23,7 +23,7 @@
         transform: translateX(100%);
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-130%);
     }
 }
 
@@ -31,7 +31,7 @@
 .reviews-scroll {
     display: flex;
     width: max-content;
-    animation: scrollTape 30s linear infinite;
+    animation: scrollTape 60s linear infinite;
     padding: 20px 0;
 }
 
@@ -52,11 +52,11 @@
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     border: 10px solid white;
     position: relative;
-    margin: 0 20px;
+    margin: 0 30px;
     transform: rotate(var(--rotate, -2deg));
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-width: 280px;
-    max-width: 350px;
+    min-width: 450px;
+    max-width: 550px;
 }
 
 /* Alternate rotation for cards */
@@ -92,6 +92,7 @@
     margin-bottom: 15px;
     position: relative;
     overflow: hidden;
+    height: auto;
 }
 
 .review-image {
@@ -102,39 +103,14 @@
     transition: transform 0.5s ease;
     transform-origin: center;
     object-fit: contain; /* Ensure the image is fully visible */
+    max-height: none;
 }
 
 .review-card:hover .review-image {
     transform: scale(1.03);
 }
 
-/* Controls for the scrollable area */
-.reviews-controls {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    gap: 20px;
-}
-
-.control-btn {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.control-btn:hover {
-    background-color: #1e4080;
-    transform: translateY(-2px);
-}
+/* No controls needed since animation is automatic */
 
 .reviews-button {
     margin-top: 40px;
@@ -161,10 +137,10 @@
     font-size: 1.1rem;
 }
 
-/* Make a copy of the tape for continuous scrolling */
-.tape-clone {
-    animation: scrollTape 30s linear infinite;
-    animation-delay: -15s;
+/* Additional styling for ensuring review cards are clearly visible */
+.reviews-container {
+    margin-top: 30px;
+    padding: 30px 0;
 }
 
 /* Image error handling */
@@ -210,7 +186,12 @@
     }
     
     .review-card {
-        min-width: 250px;
+        min-width: 400px;
+        max-width: 450px;
+    }
+    
+    .reviews-scroll {
+        animation-duration: 70s; /* Slower on smaller screens */
     }
 }
 
@@ -225,9 +206,11 @@
     }
     
     .review-card {
-        min-width: 220px;
-        max-width: 280px;
+        min-width: 300px;
+        max-width: 350px;
         --rotate: -3deg;
+        padding: 10px;
+        margin: 0 20px;
     }
     
     .review-card:nth-child(even) {
@@ -238,7 +221,7 @@
         width: 100px;
     }
     
-    .reviews-controls {
-        margin-top: 20px;
+    .reviews-scroll {
+        animation-duration: 80s; /* Even slower on mobile for better reading */
     }
 }

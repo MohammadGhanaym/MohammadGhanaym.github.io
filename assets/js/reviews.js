@@ -9,30 +9,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Elements
     const reviewsSection = document.getElementById('feedback');
     const reviewsScroll = document.querySelector('.reviews-scroll');
-    const pauseBtn = document.querySelector('.pause-btn');
-    const playBtn = document.querySelector('.play-btn');
     
     if (!reviewsScroll) return;
     
-    // Control animation
-    if (pauseBtn && playBtn) {
-        pauseBtn.addEventListener('click', function() {
-            reviewsScroll.style.animationPlayState = 'paused';
-            pauseBtn.style.display = 'none';
-            playBtn.style.display = 'flex';
+    // Temporarily pause animation when hovering over a card to read it
+    const reviewCards = document.querySelectorAll('.review-card');
+    reviewCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            if (reviewsScroll) {
+                reviewsScroll.style.animationPlayState = 'paused';
+            }
         });
         
-        playBtn.addEventListener('click', function() {
-            reviewsScroll.style.animationPlayState = 'running';
-            playBtn.style.display = 'none';
-            pauseBtn.style.display = 'flex';
+        card.addEventListener('mouseleave', function() {
+            if (reviewsScroll) {
+                reviewsScroll.style.animationPlayState = 'running';
+            }
         });
-    }
-    
-    // On mobile, slow down the animation
-    if (window.innerWidth < 768) {
-        reviewsScroll.style.animationDuration = '40s';
-    }
+    });
     
     // Handle image loading issues
     document.querySelectorAll('.review-image').forEach(img => {
@@ -53,7 +47,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // If the user has reduced motion preferences, stop animation
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         reviewsScroll.style.animationPlayState = 'paused';
-        if (pauseBtn) pauseBtn.style.display = 'none';
-        if (playBtn) playBtn.style.display = 'flex';
     }
 });

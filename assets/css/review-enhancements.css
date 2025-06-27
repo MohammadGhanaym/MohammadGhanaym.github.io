@@ -1,0 +1,39 @@
+/* Additional CSS for review images enhancement */
+.review-card {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.review-image {
+    max-height: 500px; /* Limit maximum height */
+    object-fit: scale-down; /* Ensures the entire image is visible */
+}
+
+/* Enhance hover effect */
+.review-card:hover {
+    z-index: 100;
+}
+
+/* Smooth slowdown when hovering */
+.reviews-scroll:hover {
+    animation-play-state: paused;
+}
+
+/* Background enhancements for better readability */
+.reviews-section {
+    position: relative;
+}
+
+.reviews-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(249, 249, 250, 1) 0%, rgba(249, 249, 250, 0) 5%, rgba(249, 249, 250, 0) 95%, rgba(249, 249, 250, 1) 100%);
+    pointer-events: none;
+    z-index: 5;
+}
