@@ -21,10 +21,54 @@ document.addEventListener('DOMContentLoaded', function() {
         burger.classList.toggle('toggle');
     });
     
-    // Project card hover effects
+    // Project Filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
     
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            const filter = btn.getAttribute('data-filter');
+            
+            projectCards.forEach(card => {
+                if (filter === 'all') {
+                    card.style.display = 'block';
+                    // Add a nice fade-in animation
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else if (card.getAttribute('data-category') === filter) {
+                    card.style.display = 'block';
+                    // Add a nice fade-in animation
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+    
+    // Add initial animation and hover effects for project cards
     projectCards.forEach(card => {
+        // Set initial state for animation
+        card.style.transition = 'all 0.3s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+        
+        // Hover effects
         card.addEventListener('mouseenter', () => {
             card.classList.add('hovered');
         });
@@ -161,5 +205,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const isEven = [...tapeItems].indexOf(item) % 2 === 0;
         const baseAngle = isEven ? -1.5 : 1.5;
         item.style.transform = `rotate(${baseAngle + randomAngle}deg)`;
+    });
+    
+    // Add animation for feedback items
+    const feedbackItems = document.querySelectorAll('.tape-item');
+    
+    feedbackItems.forEach((item, index) => {
+        // Add staggered animation on load
+        setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = `rotate(var(--rotate, ${index % 2 === 0 ? '-1deg' : '1deg'}))`;
+        }, 300 + (index * 150));
     });
 });
