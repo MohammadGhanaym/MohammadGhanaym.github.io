@@ -238,4 +238,32 @@ document.addEventListener('DOMContentLoaded', function() {
             card.style.transform = 'translateY(0)';
         });
     });
+    
+    // Add animation for review cards when they scroll into view
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    const reviewObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    reviewCards.forEach(card => {
+        reviewObserver.observe(card);
+    });
+    
+    // Fix for ensuring review images load properly
+    document.querySelectorAll('.review-image').forEach(img => {
+        img.addEventListener('error', function() {
+            this.src = 'assets/images/placeholder-review.jpg';
+            this.alt = 'Review image could not be loaded';
+        });
+    });
 });

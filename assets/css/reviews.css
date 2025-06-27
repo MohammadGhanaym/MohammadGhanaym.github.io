@@ -14,6 +14,11 @@
     margin-right: auto;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px) rotate(var(--rotate, -1deg)); }
+    to { opacity: 1; transform: translateY(0) rotate(var(--rotate, -1deg)); }
+}
+
 .review-card {
     background-color: white;
     border-radius: 3px;
@@ -26,28 +31,37 @@
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     border: 10px solid white;
     position: relative;
-    transform: rotate(var(--rotate, -1deg));
+    --rotate: -2deg;
+    transform: rotate(var(--rotate));
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: calc(var(--animation-order) * 0.2s);
+    opacity: 0;
 }
 
+.review-card:nth-child(1) { --animation-order: 1; }
+.review-card:nth-child(2) { --animation-order: 2; }
+.review-card:nth-child(3) { --animation-order: 3; }
+.review-card:nth-child(4) { --animation-order: 4; }
+
 .review-card:nth-child(even) {
-    --rotate: 1deg;
+    --rotate: 2deg;
 }
 
 .review-card:hover {
-    transform: rotate(0) scale(1.02);
+    transform: rotate(0) scale(1.05);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     z-index: 10;
 }
 
-/* Tape effect */
+/* Enhanced Tape effect */
 .review-card::before {
     content: '';
     position: absolute;
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 30px;
+    width: 120px;
+    height: 35px;
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px dashed rgba(0, 0, 0, 0.15);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
@@ -59,6 +73,8 @@
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
 }
 
 .review-image {
@@ -66,16 +82,33 @@
     height: auto;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.5s ease;
+    transform-origin: center;
+}
+
+.review-card:hover .review-image {
+    transform: scale(1.03);
 }
 
 .reviews-button {
-    margin-top: 30px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .reviews-button .btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-button .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .reviews-button .btn i {
@@ -85,7 +118,12 @@
 @media screen and (max-width: 1200px) {
     .reviews-container {
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        gap: 40px;
+    }
+    
+    .review-card:nth-child(3),
+    .review-card:nth-child(4) {
+        margin-top: 15px;
     }
 }
 
@@ -95,5 +133,18 @@
         max-width: 500px;
         margin-left: auto;
         margin-right: auto;
+        gap: 60px;
+    }
+    
+    .review-card {
+        --rotate: -3deg;
+    }
+    
+    .review-card:nth-child(even) {
+        --rotate: 3deg;
+    }
+    
+    .review-card::before {
+        width: 100px;
     }
 }
