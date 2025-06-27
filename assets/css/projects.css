@@ -7,8 +7,10 @@
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    gap: 35px;
+    margin: 45px auto 30px;
+    padding: 5px;
+    max-width: 1300px;
 }
 
 /* Filter buttons responsiveness */
