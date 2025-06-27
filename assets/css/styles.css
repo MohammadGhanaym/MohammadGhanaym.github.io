@@ -441,76 +441,16 @@ nav .container {
 .project-info p {
     color: #666;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     flex-grow: 1;
 }
 
-.project-skills {
-    margin-bottom: 20px;
-}
-
-.project-skills h4 {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    color: #555;
-    font-weight: 500;
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.project-tags span {
-    font-size: 0.8rem;
-    padding: 4px 10px;
-    border-radius: 50px;
-    background-color: #f2f7ff;
-    color: #3a86ff;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-}
-
-.project-tags span i {
-    margin-right: 5px;
-    font-size: 0.9rem;
-}
-
-.tag-python {
-    background-color: #f2fcf3;
-    color: #3eb65f;
-}
-
-.tag-pandas {
-    background-color: #fff5f5;
-    color: #ff6b6b;
-}
-
-.tag-numpy {
-    background-color: #f2f2ff;
-    color: #5c5cff;
-}
-
-.tag-matplotlib {
-    background-color: #f9f2ff;
-    color: #9d4edd;
-}
-
-.tag-excel {
-    background-color: #f0f9f2;
-    color: #2a9d8f;
-}
-
-.tag-powerbi {
-    background-color: #fff8f0;
-    color: #ff9500;
-}
+/* Project tags styling removed - no longer used */
 
 .project-links {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 15px;
     margin-top: auto;
 }
@@ -919,13 +859,13 @@ footer {
     max-height: 80%;
 }
 
-/* View more button */
-.feedback-gallery .view-more {
+/* Project "View All" Button */
+.view-more {
     text-align: center;
     margin-top: 60px;
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 40px;
     border-top: 1px solid #f0f0f0;
 }
 
@@ -936,6 +876,42 @@ footer {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.view-more .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Projects Section - View More Button */
+.projects-view-more {
+    margin-top: 80px;
+    padding-top: 50px;
+    border-top: 2px solid #f5f5f5;
+}
+
+.projects-view-more .btn {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 20px rgba(42, 82, 152, 0.2);
+}
+
+.projects-view-more .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(42, 82, 152, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+    .projects-view-more {
+        margin-top: 60px;
+        padding-top: 30px;
+    }
+    
+    .projects-view-more .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
 }
 
 /* Responsive Design */
