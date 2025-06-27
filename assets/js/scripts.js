@@ -259,6 +259,48 @@ document.addEventListener('DOMContentLoaded', function() {
         reviewObserver.observe(card);
     });
     
+    // Control buttons for the reviews scroll
+    const pauseButton = document.querySelector('.pause-btn');
+    const playButton = document.querySelector('.play-btn');
+    const reviewsScroll = document.querySelector('.reviews-scroll');
+    
+    if (pauseButton && playButton && reviewsScroll) {
+        // Initially hide the play button since animation is playing by default
+        playButton.style.display = 'none';
+        
+        pauseButton.addEventListener('click', function() {
+            reviewsScroll.style.animationPlayState = 'paused';
+            pauseButton.style.display = 'none';
+            playButton.style.display = 'flex';
+        });
+        
+        playButton.addEventListener('click', function() {
+            reviewsScroll.style.animationPlayState = 'running';
+            playButton.style.display = 'none';
+            pauseButton.style.display = 'flex';
+        });
+        
+        // Duplicate the reviews-scroll content for endless looping
+        const createClone = () => {
+            // We already have duplicates in the HTML for the simple approach
+            // This is just for GitHub Pages compatibility
+            const reviewCards = document.querySelectorAll('.review-card');
+            const firstFourCards = Array.from(reviewCards).slice(0, 4);
+        };
+        
+        createClone();
+        
+        // Fix for ensuring review images load properly
+        document.querySelectorAll('.review-image').forEach(img => {
+            img.addEventListener('error', function() {
+                console.log('Image failed to load:', this.src);
+                // If image fails to load, add a class for styling
+                this.classList.add('image-error');
+                this.parentElement.classList.add('image-container-error');
+            });
+        });
+    }
+    
     // Fix for ensuring review images load properly
     document.querySelectorAll('.review-image').forEach(img => {
         img.addEventListener('error', function() {

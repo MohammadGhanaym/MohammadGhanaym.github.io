@@ -2,28 +2,49 @@
 .reviews-section {
     background-color: #f9f9fa;
     padding: 60px 0;
+    overflow: hidden;
+    position: relative;
+    min-height: 400px; /* Ensure there's enough space for the reviews */
 }
 
+/* Horizontal scrolling container */
 .reviews-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
+    width: 100%;
+    max-width: 100%;
     margin-bottom: 50px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    position: relative;
+    padding: 20px 0;
+    overflow: hidden;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px) rotate(var(--rotate, -1deg)); }
-    to { opacity: 1; transform: translateY(0) rotate(var(--rotate, -1deg)); }
+/* Animation for the horizontal scrolling */
+@keyframes scrollTape {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
+/* Inner container with animation */
+.reviews-scroll {
+    display: flex;
+    width: max-content;
+    animation: scrollTape 30s linear infinite;
+    padding: 20px 0;
+}
+
+/* Pause animation on hover */
+.reviews-scroll:hover {
+    animation-play-state: paused;
+}
+
+/* Review card styling */
 .review-card {
     background-color: white;
     border-radius: 3px;
     overflow: hidden;
-    transition: transform 0.5s ease, box-shadow 0.3s ease;
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -31,18 +52,14 @@
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     border: 10px solid white;
     position: relative;
-    --rotate: -2deg;
-    transform: rotate(var(--rotate));
-    animation: fadeIn 0.8s ease forwards;
-    animation-delay: calc(var(--animation-order) * 0.2s);
-    opacity: 0;
+    margin: 0 20px;
+    transform: rotate(var(--rotate, -2deg));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 280px;
+    max-width: 350px;
 }
 
-.review-card:nth-child(1) { --animation-order: 1; }
-.review-card:nth-child(2) { --animation-order: 2; }
-.review-card:nth-child(3) { --animation-order: 3; }
-.review-card:nth-child(4) { --animation-order: 4; }
-
+/* Alternate rotation for cards */
 .review-card:nth-child(even) {
     --rotate: 2deg;
 }
@@ -78,16 +95,45 @@
 }
 
 .review-image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.5s ease;
     transform-origin: center;
+    object-fit: contain; /* Ensure the image is fully visible */
 }
 
 .review-card:hover .review-image {
     transform: scale(1.03);
+}
+
+/* Controls for the scrollable area */
+.reviews-controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.control-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background-color: #1e4080;
+    transform: translateY(-2px);
 }
 
 .reviews-button {
@@ -115,28 +161,72 @@
     font-size: 1.1rem;
 }
 
+/* Make a copy of the tape for continuous scrolling */
+.tape-clone {
+    animation: scrollTape 30s linear infinite;
+    animation-delay: -15s;
+}
+
+/* Image error handling */
+.image-error {
+    min-height: 200px;
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.image-error::after {
+    content: 'Image could not be loaded';
+    font-size: 14px;
+    color: #888;
+}
+
+.image-container-error {
+    background-color: #f1f1f1;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Additional style to ensure compatibility across browsers */
+@supports not (animation-play-state: paused) {
+    .reviews-scroll {
+        transition: transform 0.5s ease;
+    }
+}
+
+/* Responsive adjustments */
 @media screen and (max-width: 1200px) {
-    .reviews-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
+    @keyframes scrollTape {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-150%);
+        }
     }
     
-    .review-card:nth-child(3),
-    .review-card:nth-child(4) {
-        margin-top: 15px;
+    .review-card {
+        min-width: 250px;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .reviews-container {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-        gap: 60px;
+    @keyframes scrollTape {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-200%);
+        }
     }
     
     .review-card {
+        min-width: 220px;
+        max-width: 280px;
         --rotate: -3deg;
     }
     
@@ -146,5 +236,9 @@
     
     .review-card::before {
         width: 100px;
+    }
+    
+    .reviews-controls {
+        margin-top: 20px;
     }
 }
