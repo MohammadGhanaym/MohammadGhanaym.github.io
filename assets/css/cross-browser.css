@@ -1,0 +1,97 @@
+/**
+ * Cross-browser compatibility styles
+ * Ensures website works well in all major browsers
+ */
+
+/* Firefox specific fixes */
+@-moz-document url-prefix() {
+    .projects-grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .project-card {
+        flex: 1 0 calc(33.333% - 30px);
+    }
+    
+    @media screen and (max-width: 992px) {
+        .project-card {
+            flex: 1 0 calc(50% - 20px);
+        }
+    }
+    
+    @media screen and (max-width: 576px) {
+        .project-card {
+            flex: 1 0 100%;
+        }
+    }
+}
+
+/* Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */
+    .reviews-scroll {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    /* Enhanced image rendering */
+    .project-bg-img {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    /* Fix tap highlight color */
+    a, button, .project-card {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* IE/Edge legacy support */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS */
+    .projects-grid {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr 1fr;
+        grid-gap: 30px;
+    }
+    
+    @media screen and (max-width: 992px) {
+        .projects-grid {
+            -ms-grid-columns: 1fr 1fr;
+        }
+    }
+    
+    @media screen and (max-width: 576px) {
+        .projects-grid {
+            -ms-grid-columns: 1fr;
+        }
+    }
+}
+
+/* Print styles enhancement */
+@media print {
+    /* Forces background images to print */
+    .project-image {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    /* Breaks pages at logical section points */
+    section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    /* Remove hover effects that don't work well on touch */
+    .project-card:hover .project-bg-img {
+        transform: none;
+    }
+    
+    /* Increase touch target sizes */
+    .nav-links a, .btn, .filter-btn {
+        padding: 12px 20px;
+    }
+}

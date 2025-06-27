@@ -40,6 +40,21 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
     
+    // Preload project images
+    function preloadProjectImages() {
+        const projectImages = document.querySelectorAll('.project-bg-img');
+        projectImages.forEach(img => {
+            const src = img.getAttribute('src');
+            if (src) {
+                const preloadLink = document.createElement('link');
+                preloadLink.href = src;
+                preloadLink.rel = 'preload';
+                preloadLink.as = 'image';
+                document.head.appendChild(preloadLink);
+            }
+        });
+    }
+    
     // Fix for Firefox FOUC (Flash Of Unstyled Content)
     document.documentElement.classList.add('css-loaded');
     
@@ -61,4 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize preloading
     preloadCriticalImages();
+    // Initialize preloading for project images too
+    preloadProjectImages();
 });

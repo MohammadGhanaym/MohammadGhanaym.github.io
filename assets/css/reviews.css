@@ -5,6 +5,7 @@
     overflow: hidden;
     position: relative;
     min-height: 400px; /* Ensure there's enough space for the reviews */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 /* Horizontal scrolling container */
@@ -15,6 +16,7 @@
     position: relative;
     padding: 20px 0;
     overflow: hidden;
+    overscroll-behavior-x: none; /* Prevent scroll chaining */
 }
 
 /* Animation for the horizontal scrolling */
@@ -23,7 +25,17 @@
         transform: translateX(0%); /* Start from visible position */
     }
     100% {
-        transform: translateX(-100%); /* Move one full width */
+        transform: translateX(-50%); /* Move half width for smoother loop */
+    }
+}
+
+/* Also provide webkit-specific animation for Safari */
+@-webkit-keyframes scrollTape {
+    0% {
+        -webkit-transform: translateX(0%);
+    }
+    100% {
+        -webkit-transform: translateX(-50%);
     }
 }
 
@@ -32,14 +44,20 @@
     display: flex;
     width: max-content;
     animation: scrollTape 60s linear infinite;
+    -webkit-animation: scrollTape 60s linear infinite; /* Safari support */
     animation-delay: 0s; /* Start immediately */
     padding: 20px 0;
     will-change: transform; /* Optimize for animation performance */
+    backface-visibility: hidden; /* Reduce flickering */
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0); /* Force GPU acceleration */
+    -webkit-transform: translate3d(0, 0, 0);
 }
 
 /* Pause animation on hover */
 .reviews-scroll:hover {
     animation-play-state: paused;
+    -webkit-animation-play-state: paused;
 }
 
 /* Review card styling */

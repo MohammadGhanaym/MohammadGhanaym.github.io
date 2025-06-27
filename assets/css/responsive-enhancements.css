@@ -226,3 +226,100 @@
         box-shadow: none;
     }
 }
+
+/**
+ * Additional responsive enhancements
+ * Focused on spacing, padding and flow
+ */
+
+/* Global spacing improvements */
+@media screen and (max-width: 992px) {
+    section {
+        padding: 50px 0;
+    }
+    
+    .section-title {
+        margin-bottom: 30px;
+    }
+    
+    .projects-grid {
+        gap: 25px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    .projects-grid {
+        gap: 20px;
+    }
+    
+    .view-more {
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    section {
+        padding: 30px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .projects-grid {
+        gap: 25px;
+    }
+    
+    .project-filters {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+    
+    .project-filters::-webkit-scrollbar {
+        height: 4px;
+    }
+    
+    .project-filters::-webkit-scrollbar-thumb {
+        background-color: rgba(42, 82, 152, 0.3);
+        border-radius: 4px;
+    }
+    
+    .filter-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+    
+    .contact-info-centered {
+        gap: 15px;
+    }
+}
+
+/* Contact section specific improvements */
+@media screen and (max-width: 768px) {
+    .contact-info-centered {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .contact-info-centered {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}

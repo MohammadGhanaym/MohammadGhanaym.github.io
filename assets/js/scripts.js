@@ -1,25 +1,73 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation Toggle
+    // Mobile Navigation Toggle with enhanced touch support
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links li');
     
-    burger.addEventListener('click', () => {
-        // Toggle Nav
-        nav.classList.toggle('nav-active');
+    // Ensure burger menu works on all devices including touch devices
+    if (burger && nav) {
+        // Use both click and touchstart for better mobile response
+        ['click', 'touchstart'].forEach(eventType => {
+            burger.addEventListener(eventType, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Toggle Nav
+                nav.classList.toggle('nav-active');
+                
+                // Update ARIA attributes
+                const expanded = burger.getAttribute('aria-expanded') === 'true' || false;
+                burger.setAttribute('aria-expanded', !expanded);
+                
+                // Animate Links
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    }
+                });
+                
+                // Burger Animation
+                burger.classList.toggle('toggle');
+            }, { passive: false });
+        });
         
-        // Animate Links
-        navLinks.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = '';
-            } else {
-                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+        // Close menu when clicking elsewhere on the page
+        document.addEventListener('click', function(e) {
+            if (nav.classList.contains('nav-active') && 
+                !nav.contains(e.target) && 
+                !burger.contains(e.target)) {
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+                burger.setAttribute('aria-expanded', 'false');
+                
+                // Reset animations
+                navLinks.forEach(link => {
+                    link.style.animation = '';
+                });
             }
         });
         
-        // Burger Animation
-        burger.classList.toggle('toggle');
-    });
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            if (link.querySelector('a')) {
+                link.querySelector('a').addEventListener('click', function() {
+                    // Only perform this action on mobile
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove('nav-active');
+                        burger.classList.remove('toggle');
+                        burger.setAttribute('aria-expanded', 'false');
+                        
+                        // Reset animations
+                        navLinks.forEach(link => {
+                            link.style.animation = '';
+                        });
+                    }
+                });
+            }
+        });
+    }
     
     // Project Filtering
     const filterBtns = document.querySelectorAll('.filter-btn');

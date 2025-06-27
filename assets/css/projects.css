@@ -53,6 +53,76 @@
     flex-direction: column;
 }
 
+/* Project Section Enhancements */
+
+/* Image optimization */
+.project-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+    background-color: #f0f0f0; /* Placeholder background */
+}
+
+.project-image::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.2) 100%);
+    z-index: 1;
+}
+
+.project-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+}
+
+/* Subtle zoom effect on hover */
+.project-card:hover .project-bg-img {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+}
+
+/* Image loading optimization */
+.project-bg-img.loading {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.project-bg-img.loaded {
+    opacity: 1;
+}
+
+/* Ensure proper image aspect ratio on all screen sizes */
+@media (max-width: 992px) {
+    .project-image {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-image {
+        height: 160px;
+    }
+}
+
+@media (max-width: 576px) {
+    .project-image {
+        height: 200px;
+    }
+}
+
 /* Responsive breakpoints for projects */
 @media screen and (max-width: 1200px) {
     .projects-grid {
