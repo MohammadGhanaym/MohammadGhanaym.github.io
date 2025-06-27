@@ -248,13 +248,13 @@ html {
 
 @media screen and (max-width: 992px) {
     .contact-info-centered {
-        gap: 20px;
+        grid-gap: 15px;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .contact-item {
-        min-width: 100%;
+    .contact-info-centered {
+        grid-template-columns: 1fr;
     }
 }
 
