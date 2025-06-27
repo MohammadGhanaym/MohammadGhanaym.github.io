@@ -32,7 +32,7 @@ body {
 }
 
 section {
-    padding: 50px 0;
+    padding: 60px 0;
 }
 
 .section-title {
@@ -46,12 +46,13 @@ section {
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
     background: var(--primary-color);
+    border-radius: 2px;
 }
 
 .highlight {
@@ -67,7 +68,7 @@ section {
     font-weight: 500;
     font-size: 1rem;
     cursor: pointer;
-    transition: var(--transition);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     text-decoration: none;
     text-align: center;
 }
@@ -79,6 +80,7 @@ section {
 
 .primary-btn:hover {
     background: #1e3c6e;
+    transform: translateY(-3px);
 }
 
 .secondary-btn {
@@ -514,8 +516,24 @@ nav .container {
 }
 
 .project-links .btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #e1e4e8;
+    transition: all 0.3s ease;
+}
+
+.project-links .btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.project-links .btn i {
+    font-size: 1.1rem;
 }
 
 /* Feedback Preview Section */
@@ -904,12 +922,14 @@ footer {
 /* View more button */
 .feedback-gallery .view-more {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 .view-more .btn {
-    display: inline-block;
-    padding: 12px 24px;
+    padding: 12px 28px;
+    font-size: 1rem;
     font-weight: 500;
 }
 
@@ -976,6 +996,10 @@ footer {
     .project-title h3 {
         font-size: 1.1rem;
     }
+    
+    .project-links .btn {
+        width: 100%;
+    }
 }
 
 /* Animation Classes */
@@ -1007,15 +1031,19 @@ footer {
 }
 
 .profile-image {
-    max-width: 100%;
+    width: 100%;
+    max-width: 320px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    margin: 0 auto;
 }
 
 .profile-image:hover {
     transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* Project Category Badge Styles */

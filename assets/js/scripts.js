@@ -214,4 +214,28 @@ document.addEventListener('DOMContentLoaded', function() {
         // Apply rotation immediately
         item.style.transform = `rotate(${index % 2 === 0 ? '-1deg' : '1deg'})`;
     });
+    
+    // Review cards animation
+    const reviewCards = document.querySelectorAll('.review-card');
+    
+    reviewCards.forEach((card, index) => {
+        // Set initial state
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        // Apply animation with delay based on index
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 300 + (index * 150));
+        
+        // Add hover effect
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-8px)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
 });
