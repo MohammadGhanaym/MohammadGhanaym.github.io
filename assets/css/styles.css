@@ -415,6 +415,7 @@ nav .container {
     object-fit: cover;
     opacity: 0.85;
     transition: transform 0.5s ease, opacity 0.5s ease;
+    display: block;
 }
 
 .project-card:hover .project-bg-img {

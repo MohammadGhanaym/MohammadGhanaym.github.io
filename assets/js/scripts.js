@@ -211,10 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const feedbackItems = document.querySelectorAll('.tape-item');
     
     feedbackItems.forEach((item, index) => {
-        // Add staggered animation on load
-        setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = `rotate(var(--rotate, ${index % 2 === 0 ? '-1deg' : '1deg'}))`;
-        }, 300 + (index * 150));
+        // Apply rotation immediately
+        item.style.transform = `rotate(${index % 2 === 0 ? '-1deg' : '1deg'})`;
     });
 });
