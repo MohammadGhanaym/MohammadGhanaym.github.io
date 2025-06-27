@@ -24,6 +24,8 @@
 /* Background enhancements for better readability */
 .reviews-section {
     position: relative;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .reviews-section::before {
@@ -36,4 +38,16 @@
     background: linear-gradient(to right, rgba(249, 249, 250, 1) 0%, rgba(249, 249, 250, 0) 5%, rgba(249, 249, 250, 0) 95%, rgba(249, 249, 250, 1) 100%);
     pointer-events: none;
     z-index: 5;
+}
+
+/* Ensure animation display immediately */
+.reviews-scroll {
+    visibility: visible !important;
+    backface-visibility: hidden; /* Performance optimization */
+    perspective: 1000px; /* Performance optimization */
+}
+
+/* Force immediate rendering */
+html .reviews-container {
+    contain: none !important;
 }

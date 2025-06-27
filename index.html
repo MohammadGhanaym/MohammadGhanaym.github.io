@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/reviews.css">
     <link rel="stylesheet" href="assets/css/review-enhancements.css">
+    <!-- Immediate animation start script -->
+    <script>
+        // Preload review images
+        (function() {
+            const preloadImages = ['feedback1.PNG', 'feedback2.PNG', 'feedback3.PNG', 'feedback4.PNG'];
+            preloadImages.forEach(img => {
+                const image = new Image();
+                image.src = 'assets/data/Clients Feedback/' + img;
+            });
+        })();
+    </script>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -232,24 +243,25 @@
             <h2 class="section-title">Client Reviews</h2>
             <div class="reviews-container">
                 <div class="reviews-scroll">
+                    <!-- First set of cards -->
                     <div class="review-card">
                         <div class="review-image-container">
-                            <img src="assets/data/Clients Feedback/feedback1.PNG" alt="Client Review 1" class="review-image" loading="lazy">
+                            <img src="assets/data/Clients Feedback/feedback1.PNG" alt="Client Review 1" class="review-image" loading="eager">
                         </div>
                     </div>
                     <div class="review-card">
                         <div class="review-image-container">
-                            <img src="assets/data/Clients Feedback/feedback2.PNG" alt="Client Review 2" class="review-image" loading="lazy">
+                            <img src="assets/data/Clients Feedback/feedback2.PNG" alt="Client Review 2" class="review-image" loading="eager">
                         </div>
                     </div>
                     <div class="review-card">
                         <div class="review-image-container">
-                            <img src="assets/data/Clients Feedback/feedback3.PNG" alt="Client Review 3" class="review-image" loading="lazy">
+                            <img src="assets/data/Clients Feedback/feedback3.PNG" alt="Client Review 3" class="review-image" loading="eager">
                         </div>
                     </div>
                     <div class="review-card">
                         <div class="review-image-container">
-                            <img src="assets/data/Clients Feedback/feedback4.PNG" alt="Client Review 4" class="review-image" loading="lazy">
+                            <img src="assets/data/Clients Feedback/feedback4.PNG" alt="Client Review 4" class="review-image" loading="eager">
                         </div>
                     </div>
                     <!-- Duplicated cards for continuous scrolling -->
@@ -330,5 +342,6 @@
 
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/reviews.js"></script>
+    <script src="assets/js/reviews-observer.js"></script>
 </body>
 </html>

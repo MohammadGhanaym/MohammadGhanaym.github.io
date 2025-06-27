@@ -20,10 +20,10 @@
 /* Animation for the horizontal scrolling */
 @keyframes scrollTape {
     0% {
-        transform: translateX(100%);
+        transform: translateX(0%); /* Start from visible position */
     }
     100% {
-        transform: translateX(-130%);
+        transform: translateX(-100%); /* Move one full width */
     }
 }
 
@@ -32,7 +32,9 @@
     display: flex;
     width: max-content;
     animation: scrollTape 60s linear infinite;
+    animation-delay: 0s; /* Start immediately */
     padding: 20px 0;
+    will-change: transform; /* Optimize for animation performance */
 }
 
 /* Pause animation on hover */
@@ -178,10 +180,10 @@
 @media screen and (max-width: 1200px) {
     @keyframes scrollTape {
         0% {
-            transform: translateX(100%);
+            transform: translateX(0%);
         }
         100% {
-            transform: translateX(-150%);
+            transform: translateX(-100%);
         }
     }
     
@@ -198,10 +200,10 @@
 @media screen and (max-width: 768px) {
     @keyframes scrollTape {
         0% {
-            transform: translateX(100%);
+            transform: translateX(0%);
         }
         100% {
-            transform: translateX(-200%);
+            transform: translateX(-100%);
         }
     }
     
