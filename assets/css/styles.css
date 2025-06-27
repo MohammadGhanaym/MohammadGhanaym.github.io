@@ -922,15 +922,20 @@ footer {
 /* View more button */
 .feedback-gallery .view-more {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 60px;
     display: flex;
     justify-content: center;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
 }
 
 .view-more .btn {
-    padding: 12px 28px;
-    font-size: 1rem;
+    padding: 14px 30px;
+    font-size: 1.05rem;
     font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 }
 
 /* Responsive Design */
@@ -985,6 +990,16 @@ footer {
     
     .project-info p {
         font-size: 0.95rem;
+    }
+    
+    .view-more {
+        margin-top: 50px;
+        padding-top: 15px;
+    }
+    
+    .view-more .btn {
+        padding: 12px 24px;
+        font-size: 1rem;
     }
 }
 
