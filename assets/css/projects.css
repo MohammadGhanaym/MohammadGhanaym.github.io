@@ -46,60 +46,19 @@
     background-color: white;
     border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid #f0f0f0;
-    display: flex;
-    flex-direction: column;
+    transition: transform 0.3s ease;
+    border: 1px solid #eaeaea;
 }
 
-/* Project Section Enhancements */
-
-/* Image optimization */
-.project-image {
-    position: relative;
-    height: 220px;
-    overflow: hidden;
-    border-radius: 8px 8px 0 0;
-    background-color: #f0f0f0; /* Placeholder background */
-}
-
-.project-image::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.1) 100%);
-    z-index: 1;
-}
-
-.project-bg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center; /* Consistent positioning */
-    transition: transform 0.5s ease-in-out;
-    will-change: transform;
-    backface-visibility: hidden;
-}
-
-/* Refined project card design */
-.project-card {
-    position: relative;
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid #f0f0f0;
-}
-
+/* Refined project card design with no shading */
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+    border-color: #d0d0d0;
+}
+
+/* Remove the box-shadow */
+.project-card {
+    box-shadow: none;
 }
 
 /* Subtle zoom effect on hover */
@@ -111,34 +70,15 @@
 .project-info {
     padding: 20px;
     background-color: white;
-}
-
-.project-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    font-weight: 600;
-    color: var(--dark-color);
-    line-height: 1.4;
+    border-top: none;
 }
 
 /* Category badge styling */
 .project-category-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background-color: rgba(255, 255, 255, 0.85);
-    color: var(--primary-color);
-    padding: 5px 12px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    z-index: 2;
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
 }
 
-/* Project tags styling */
+/* Project tags styling - more subdued */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -147,33 +87,31 @@
 }
 
 .project-tags span {
-    background-color: #f5f5f7;
-    color: #555;
+    background-color: #f7f7f8;
+    color: #666;
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.8rem;
     display: inline-flex;
     align-items: center;
     transition: all 0.2s ease;
+    border: 1px solid #eaeaea;
+}
+
+.project-tags span:hover {
+    background-color: #f0f0f2;
 }
 
 .project-tags span i {
     margin-right: 5px;
     font-size: 0.9rem;
+    color: #777; /* More uniform color */
 }
 
-/* Tech-specific tag colors */
-.tag-python { color: #306998; }
-.tag-pandas { color: #130654; }
-.tag-excel { color: #217346; }
-.tag-powerbi { color: #F2C811; }
-.tag-numpy { color: #4B8BBE; }
-.tag-matplotlib { color: #11557C; }
-
-/* Updated view details link */
+/* Updated view details link with more subtle styling */
 .view-details-link {
     display: inline-block;
-    color: var(--primary-color);
+    color: #555; /* Less intense color - not blue */
     font-weight: 500;
     text-decoration: none;
     padding: 8px 0;
@@ -185,45 +123,47 @@
     content: '';
     position: absolute;
     width: 100%;
-    height: 2px;
+    height: 1px;
     bottom: 0;
     left: 0;
-    background-color: var(--primary-color);
+    background-color: #555; /* Match text color */
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease;
 }
 
 .view-details-link:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Only change color on hover */
 }
 
 .view-details-link:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
+    background-color: var(--primary-color); /* Match hover color */
 }
 
 .view-details-link i {
     margin-right: 5px;
 }
 
-/* View all projects button */
+/* View all projects button - more subtle styling */
 .view-all-projects-btn {
     display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
+    background-color: transparent;
+    color: var(--dark-color);
     padding: 12px 28px;
     border-radius: 6px;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(42, 82, 152, 0.2);
+    border: 1px solid #d0d0d0;
 }
 
 .view-all-projects-btn:hover {
-    background-color: #1e4380;
+    background-color: #f5f5f7;
     transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(42, 82, 152, 0.25);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .view-all-projects-btn i {
