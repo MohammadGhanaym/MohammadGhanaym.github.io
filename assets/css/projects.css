@@ -1,0 +1,121 @@
+/**
+ * Project cards responsive enhancements
+ * Ensures project display works well on all devices
+ */
+
+/* Project grid responsive layout */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Filter buttons responsiveness */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #555;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Project card responsive styling */
+.project-card {
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive breakpoints for projects */
+@media screen and (max-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .project-filters {
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        padding: 7px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 30px;
+    }
+    
+    .filter-btn {
+        margin-bottom: 5px;
+        padding: 6px 14px;
+    }
+    
+    .project-card {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .projects-grid {
+        gap: 25px;
+    }
+    
+    .project-filters {
+        margin-bottom: 15px;
+    }
+    
+    .project-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .project-links a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .projects-view-more {
+        margin-top: 40px !important;
+    }
+    
+    .filter-btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}

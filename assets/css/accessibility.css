@@ -1,0 +1,158 @@
+/**
+ * Accessibility and device-specific enhancements
+ * Ensures the website is usable by everyone on any device
+ */
+
+/* Basic accessibility improvements */
+:focus {
+    outline: 3px solid #4a90e2;
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 3px solid #4a90e2;
+    outline-offset: 2px;
+}
+
+/* Skip to main content link (hidden until focused) */
+.skip-link {
+    background: #2a5298;
+    color: #fff;
+    font-weight: 700;
+    left: 0;
+    padding: 10px 15px;
+    position: absolute;
+    transform: translateY(-120%);
+    transition: transform 0.3s;
+    z-index: 10000;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+/* Better touch targets for mobile */
+@media (pointer: coarse) {
+    /* Increase tap target size on touch devices */
+    button, 
+    .btn,
+    .nav-links a,
+    .social-links a,
+    .filter-btn {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* More space between clickable elements */
+    .nav-links li,
+    .social-links a {
+        margin: 0 10px;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .reviews-scroll {
+        animation: none !important;
+        transform: translateX(0) !important;
+    }
+}
+
+/* Dark mode preference support */
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme]) {
+        /* We don't fully implement dark mode but add a few improvements for OS dark mode */
+        .project-card,
+        .contact-item,
+        .review-card {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+    }
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+    .btn,
+    .section-title::after,
+    .project-category-badge,
+    .filter-btn.active {
+        border: 1px solid currentColor;
+    }
+}
+
+/* Screen orientation changes */
+@media screen and (orientation: portrait) {
+    /* Specific tweaks for portrait mode on smaller screens */
+    @media (max-width: 768px) {
+        .about-image {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 600px) {
+    /* Adjustments for landscape mode on phones */
+    .hero {
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+}
+
+/* Device-specific tweaks */
+/* iPhone SE and other small devices */
+@media screen and (max-width: 375px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablets in portrait mode */
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .hero {
+        height: 60vh;
+    }
+}
+
+/* Large screens */
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    html {
+        font-size: 18px;
+    }
+}

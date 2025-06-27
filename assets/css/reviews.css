@@ -177,7 +177,8 @@
 }
 
 /* Responsive adjustments */
-@media screen and (max-width: 1200px) {
+/* Comprehensive responsive breakpoints for reviews */
+@media screen and (max-width: 1440px) {
     @keyframes scrollTape {
         0% {
             transform: translateX(0%);
@@ -188,7 +189,14 @@
     }
     
     .review-card {
-        min-width: 400px;
+        min-width: 430px;
+        max-width: 520px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .review-card {
+        min-width: 380px;
         max-width: 450px;
     }
     
@@ -197,22 +205,22 @@
     }
 }
 
-@media screen and (max-width: 768px) {
-    @keyframes scrollTape {
-        0% {
-            transform: translateX(0%);
-        }
-        100% {
-            transform: translateX(-100%);
-        }
-    }
-    
+@media screen and (max-width: 992px) {
     .review-card {
-        min-width: 300px;
-        max-width: 350px;
+        min-width: 340px;
+        max-width: 400px;
+        padding: 12px;
+        margin: 0 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .review-card {
+        min-width: 280px;
+        max-width: 340px;
         --rotate: -3deg;
         padding: 10px;
-        margin: 0 20px;
+        margin: 0 15px;
     }
     
     .review-card:nth-child(even) {
@@ -225,5 +233,54 @@
     
     .reviews-scroll {
         animation-duration: 80s; /* Even slower on mobile for better reading */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .review-card {
+        min-width: 240px;
+        max-width: 300px;
+        padding: 8px;
+        margin: 0 12px;
+        border-width: 8px;
+    }
+    
+    .review-card::before {
+        width: 80px;
+        height: 25px;
+    }
+    
+    .reviews-container {
+        padding: 15px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .review-card {
+        min-width: 220px;
+        max-width: 270px;
+    }
+    
+    .reviews-button .btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Orientation specific adjustments */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .reviews-container {
+        padding: 10px 0;
+    }
+    
+    .review-card {
+        min-width: 240px;
+        max-width: 280px;
+        margin: 0 15px;
+        transform: rotate(0); /* Less rotation in landscape */
+    }
+    
+    .review-card:hover {
+        transform: scale(1.03); /* Subtle scale on landscape mode */
     }
 }

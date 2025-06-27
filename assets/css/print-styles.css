@@ -1,0 +1,135 @@
+/**
+ * Enhanced print styles
+ * Ensures the portfolio prints professionally for physical portfolios or PDFs
+ */
+
+@media print {
+    /* Basic print optimization */
+    @page {
+        margin: 1.5cm;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background-color: #fff;
+    }
+    
+    /* Hide non-essential elements */
+    nav, .burger, .hero-buttons, .project-links, 
+    .reviews-container, .social-links, .skip-link,
+    footer, .filter-btn, iframe, video {
+        display: none !important;
+    }
+    
+    /* Ensure key content prints well */
+    .container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+    }
+    
+    /* Maximize print area */
+    .hero, section {
+        padding: 1cm 0;
+        margin: 0;
+        min-height: auto;
+        height: auto;
+    }
+    
+    /* Better headings for print */
+    .section-title::after {
+        display: none;
+    }
+    
+    .section-title {
+        font-size: 18pt;
+        margin-bottom: 0.5cm;
+        text-align: left;
+    }
+    
+    /* Adjust project grid for print */
+    .projects-grid {
+        display: block;
+    }
+    
+    .project-card {
+        margin-bottom: 1cm;
+        box-shadow: none;
+        border: 1pt solid #ddd;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    /* Adjust details content */
+    .about-content {
+        display: block;
+    }
+    
+    .about-text {
+        margin-bottom: 1cm;
+    }
+    
+    .about-image {
+        max-width: 5cm;
+        margin: 0 auto;
+    }
+    
+    /* Print-friendly links */
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    
+    a::after {
+        content: " (" attr(href) ")";
+        font-size: 80%;
+        color: #555;
+    }
+    
+    /* Adjust skills layout */
+    .skills-tags {
+        justify-content: flex-start;
+    }
+    
+    .skill-tag {
+        background: none;
+        border: 1pt solid #ddd;
+        margin-right: 0.5cm;
+        margin-bottom: 0.2cm;
+    }
+    
+    /* Adjust contact section */
+    .contact-info-centered {
+        display: block;
+    }
+    
+    .contact-item {
+        margin-bottom: 0.5cm;
+        box-shadow: none;
+        border: 1pt solid #ddd;
+    }
+    
+    /* Print optimization to avoid blank pages */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    
+    p, li, blockquote, figure, img {
+        page-break-inside: avoid;
+    }
+    
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+    
+    /* Fix for backgrounds and borders */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}

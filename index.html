@@ -2,12 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
     <meta name="description" content="Mohammad Ghanaym - Data Analyst Portfolio showcasing projects in Power BI, Python, SQL, and Excel with visualizations and data insights">
     <title>Mohammad Ghanaym - Data Analyst Portfolio</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/reviews.css">
     <link rel="stylesheet" href="assets/css/review-enhancements.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/responsive-enhancements.css">
+    <link rel="stylesheet" href="assets/css/device-support.css">
+    <link rel="stylesheet" href="assets/css/loading-optimizations.css">
+    <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="assets/css/skills.css">
+    <link rel="stylesheet" href="assets/css/projects.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/print-styles.css">
     <!-- Immediate animation start script -->
     <script>
         // Preload review images
@@ -27,24 +36,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#about" class="skip-link">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav>
+    <nav role="navigation" aria-label="Main Navigation">
         <div class="container">
             <div class="logo">
                 <h1>Mohammad Ghanaym</h1>
             </div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#feedback">Client Reviews</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
+                <li role="none"><a href="#skills" role="menuitem">Skills</a></li>
+                <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+                <li role="none"><a href="#feedback" role="menuitem">Client Reviews</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
             </ul>
-            <div class="burger">
+            <button class="burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
                 <div class="line1"></div>
                 <div class="line2"></div>
                 <div class="line3"></div>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -341,7 +353,11 @@
     </footer>
 
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/resource-preloader.js"></script>
     <script src="assets/js/reviews.js"></script>
     <script src="assets/js/reviews-observer.js"></script>
+    <script src="assets/js/responsive-behavior.js"></script>
+    <script src="assets/js/device-handler.js"></script>
+    <script src="assets/js/responsive-test.js"></script>
 </body>
 </html>

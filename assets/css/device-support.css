@@ -1,0 +1,162 @@
+/**
+ * Edge case and modern device handling
+ * Supports notched phones, custom scrollbars, and modern layouts
+ */
+
+/* Support for notched devices (iPhone X and newer, etc) */
+@supports (padding: max(0px)) {
+    .container {
+        padding-left: max(15px, env(safe-area-inset-left));
+        padding-right: max(15px, env(safe-area-inset-right));
+    }
+    
+    .hero {
+        padding-top: max(60px, env(safe-area-inset-top));
+    }
+    
+    nav {
+        padding-top: env(safe-area-inset-top);
+    }
+    
+    footer {
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+    }
+}
+
+/* Custom scrollbar styling */
+@media (min-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 6px;
+        border: 3px solid #f1f1f1;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: #a1a1a1;
+    }
+}
+
+/* Fix keyboard issues on iOS */
+body.keyboard-open {
+    padding-bottom: 20vh;
+}
+
+/* CSS Grid enhancements for modern browsers */
+@supports (display: grid) {
+    .about-content,
+    .contact-info-centered {
+        display: grid;
+    }
+}
+
+/* Fallbacks for browsers that don't support grid */
+@supports not (display: grid) {
+    .about-content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .about-text,
+    .about-image {
+        flex: 1 1 300px;
+    }
+    
+    .contact-info-centered {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .contact-item {
+        flex: 1 1 300px;
+        margin: 10px;
+    }
+}
+
+/* Fix for older browsers without CSS variables */
+@supports not (--test: orange) {
+    .primary-btn {
+        background: #2a5298;
+    }
+    
+    .secondary-btn {
+        color: #2a5298;
+        border-color: #2a5298;
+    }
+    
+    .section-title::after {
+        background: #2a5298;
+    }
+    
+    .skill-tag i {
+        color: #2a5298;
+    }
+}
+
+/* Support for Safari <= 14 - improves flex/grid gap fallback */
+@supports not (gap: 20px) {
+    .skills-tags {
+        margin: -5px;
+    }
+    
+    .skills-tags > * {
+        margin: 5px;
+    }
+    
+    .projects-grid {
+        margin: -15px;
+    }
+    
+    .projects-grid > * {
+        margin: 15px;
+    }
+    
+    .contact-info-centered {
+        margin: -10px;
+    }
+    
+    .contact-info-centered > * {
+        margin: 10px;
+    }
+}
+
+/* Fix smooth scrolling for Safari */
+@supports (-webkit-overflow-scrolling: touch) {
+    html {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Fix for Internet Explorer (Flexbox centering) */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .container {
+        width: 100%;
+        max-width: 1200px;
+    }
+    
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .project-card {
+        display: block;
+        float: left;
+        margin: 15px;
+    }
+}
+
+/* Fix any scroll chaining issues */
+html, body {
+    overscroll-behavior-y: none;
+}

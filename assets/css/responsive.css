@@ -1,0 +1,337 @@
+/**
+ * Comprehensive Responsive Design Stylesheet
+ * Ensures the website works well on all devices from mobile to large screens
+ */
+
+/* Base responsive settings and variables */
+:root {
+    --mobile-xs: 375px;    /* Small mobile phones */
+    --mobile-sm: 480px;    /* Regular mobile phones */
+    --mobile: 576px;       /* Larger mobile phones */
+    --tablet-sm: 768px;    /* Small tablets and large phones */
+    --tablet: 992px;       /* Regular tablets and small laptops */
+    --desktop: 1200px;     /* Standard desktops */
+    --desktop-lg: 1440px;  /* Large desktops */
+}
+
+/* ====================================
+   GENERAL RESPONSIVE IMPROVEMENTS 
+==================================== */
+
+/* Reset box-sizing for all elements for consistent sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Improve image responsiveness sitewide */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fluid typography for better reading on all devices */
+html {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 992px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* Better container handling for all screen sizes */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+/* ====================================
+   NAVIGATION RESPONSIVENESS
+==================================== */
+
+@media screen and (max-width: 768px) {
+    /* Improved mobile navigation */
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 70px;
+        background-color: white;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: translateY(-150%);
+        transition: transform 0.5s ease;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        z-index: 999;
+        height: auto;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    .nav-active {
+        transform: translateY(0);
+    }
+    
+    .nav-links li {
+        margin: 12px 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 10px 0;
+    }
+    
+    /* Enhanced burger menu */
+    .burger {
+        display: block;
+        cursor: pointer;
+        z-index: 1000;
+        margin-right: 5px;
+    }
+    
+    .burger div {
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+}
+
+/* ====================================
+   HERO SECTION RESPONSIVENESS
+==================================== */
+
+@media screen and (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .hero {
+        height: 85vh;
+    }
+}
+
+/* ====================================
+   SECTIONS GENERAL RESPONSIVENESS
+==================================== */
+
+@media screen and (max-width: 992px) {
+    section {
+        padding: 50px 0;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    .section-title::after {
+        width: 60px;
+        bottom: -10px;
+    }
+}
+
+/* ====================================
+   PROJECT CARDS RESPONSIVENESS
+==================================== */
+
+@media screen and (max-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .project-filters {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .filter-btn {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .project-card {
+        min-height: auto;
+    }
+    
+    .project-links .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .project-links {
+        flex-direction: column;
+    }
+}
+
+/* ====================================
+   CONTACT SECTION RESPONSIVENESS
+==================================== */
+
+@media screen and (max-width: 992px) {
+    .contact-info-centered {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact-item {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contact-item {
+        padding: 15px;
+    }
+    
+    .contact-item i {
+        font-size: 2rem;
+    }
+    
+    .contact-item h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ====================================
+   FOOTER RESPONSIVENESS
+==================================== */
+
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* ====================================
+   ORIENTATION SPECIFIC STYLES
+==================================== */
+
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 450px;
+        padding: 100px 0 50px;
+    }
+    
+    .nav-links.nav-active {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+}
+
+/* ====================================
+   PRINT STYLES
+==================================== */
+
+@media print {
+    nav, .burger, .hero-buttons, .project-links, .reviews-container, .social-links {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+    }
+    
+    .container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    
+    .section-title::after {
+        display: none;
+    }
+}

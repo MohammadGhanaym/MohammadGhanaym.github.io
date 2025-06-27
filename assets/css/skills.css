@@ -1,0 +1,98 @@
+/**
+ * Responsive enhancements for the skills section
+ * Ensures skill tags display properly on all device sizes
+ */
+
+/* Base skill tag styles */
+.skills-container {
+    margin-top: 20px;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.skill-tag {
+    background-color: #f8f9fa;
+    border: 1px solid #eaeaea;
+    border-radius: 30px;
+    padding: 8px 18px;
+    font-size: 0.95rem;
+    color: #333;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #f1f7ff;
+}
+
+.skill-tag i {
+    color: #2a5298;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 992px) {
+    .skills-container {
+        margin-top: 15px;
+    }
+    
+    .skills-tags {
+        gap: 10px;
+    }
+    
+    .skill-tag {
+        padding: 7px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .skill-tag i {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .skills-tags {
+        gap: 8px;
+    }
+    
+    .skill-tag {
+        padding: 6px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .skills-tags {
+        gap: 8px;
+        justify-content: flex-start;
+    }
+    
+    .skill-tag {
+        padding: 5px 12px;
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .skills-tags {
+        gap: 6px;
+    }
+    
+    .skill-tag {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+    
+    .skill-tag i {
+        font-size: 0.9rem;
+    }
+}

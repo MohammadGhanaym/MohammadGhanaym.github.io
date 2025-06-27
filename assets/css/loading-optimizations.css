@@ -1,0 +1,85 @@
+/**
+ * Loading state and transition optimizations
+ * Prevents layout shifts and improves perceived performance
+ */
+
+/* Prevent layout shifts during loading */
+.css-loaded {
+    visibility: visible;
+}
+
+/* Fix Firefox FOUC (Flash Of Unstyled Content) */
+:root:not(.css-loaded) * {
+    visibility: hidden;
+}
+
+/* Prevent animations during initial load */
+body:not(.page-loaded) * {
+    animation-play-state: paused !important;
+    transition: none !important;
+}
+
+/* Add transitions only after resources are loaded */
+body.page-loaded .hero,
+body.page-loaded .section-title,
+body.page-loaded .project-card,
+body.page-loaded .contact-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Disable transitions during resize to improve performance */
+body.resizing * {
+    transition: none !important;
+}
+
+/* Avoid layout shifts before critical images load */
+body:not(.critical-images-loaded) .hero,
+body:not(.critical-images-loaded) .project-card img,
+body:not(.critical-images-loaded) .profile-image {
+    opacity: 0;
+}
+
+body.critical-images-loaded .hero,
+body.critical-images-loaded .project-card img,
+body.critical-images-loaded .profile-image {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Add content-visibility for offscreen elements to improve performance */
+@supports (content-visibility: auto) {
+    section:not(.hero) {
+        content-visibility: auto;
+        contain-intrinsic-size: 1px 500px;
+    }
+}
+
+/* Add contain: paint for large elements to improve paint performance */
+@supports (contain: paint) {
+    .projects-grid,
+    .reviews-container,
+    .contact-info-centered {
+        contain: paint;
+    }
+}
+
+/* Add will-change hints for elements that actually change */
+.project-card:hover,
+.filter-btn:hover,
+.social-links a:hover {
+    will-change: transform;
+}
+
+/* Use passive scroll effects for better performance */
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .skill-tag,
+    .project-card,
+    .contact-item,
+    .social-links a {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+}

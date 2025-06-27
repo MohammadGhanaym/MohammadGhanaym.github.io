@@ -1,0 +1,228 @@
+/**
+ * Enhanced Responsive Design Additions
+ * Addresses edge cases and provides further optimization for all device sizes
+ */
+
+/* Fix iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+    .hero {
+        min-height: 85vh; /* Fallback */
+        min-height: -webkit-fill-available;
+    }
+    
+    .hero-content {
+        padding-bottom: 2rem;
+    }
+}
+
+/* Additional optimization for ultra-small devices */
+@media screen and (max-width: 350px) {
+    html {
+        font-size: 13px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        padding: 0 12px;
+    }
+    
+    .skill-tag {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Additional landscape optimization for small devices */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    .hero {
+        min-height: 120vh;
+        padding: 60px 0 30px;
+    }
+    
+    .hero-content {
+        padding-top: 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-content p {
+        margin-bottom: 0.8rem;
+    }
+    
+    .section {
+        padding: 30px 0;
+    }
+}
+
+/* Fix grid layout for medium-sized tablets */
+@media screen and (min-width: 769px) and (max-width: 991px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Optimize for large phones in landscape */
+@media screen and (min-width: 667px) and (max-width: 896px) and (orientation: landscape) {
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        width: 95%;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+    
+    .about-content {
+        gap: 20px;
+    }
+    
+    .skills-tags {
+        gap: 8px;
+    }
+    
+    .contact-info-centered {
+        gap: 15px;
+    }
+}
+
+/* Better touch handling on larger touch screens */
+@media (pointer: coarse) and (min-width: 992px) {
+    .nav-links a,
+    .filter-btn,
+    .skill-tag,
+    .project-card {
+        transition-property: background-color, color;
+        transition-timing-function: ease-out;
+        transition-duration: 0.2s;
+    }
+    
+    .nav-links a:hover,
+    .filter-btn:hover,
+    .skill-tag:hover {
+        transform: none;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Foldable phone support */
+@media screen and (max-width: 280px) {
+    html {
+        font-size: 12px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    .hero-buttons {
+        gap: 10px;
+    }
+    
+    .hero-buttons .btn {
+        padding: 8px 16px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .project-card {
+        padding: 12px;
+    }
+}
+
+/* Fix for large desktop screens */
+@media screen and (min-width: 1600px) {
+    html {
+        font-size: 18px;
+    }
+    
+    .container {
+        max-width: 1400px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Fix for specific elements on high-resolution displays */
+@media  (min-resolution: 192dpi) {
+    .hero-content,
+    .section-title,
+    .project-card h3,
+    .contact-item h3 {
+        text-rendering: optimizeLegibility;
+    }
+}
+
+/* iPad/iPad Pro specific optimizations */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    .project-card {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .profile-image {
+        max-width: 80%;
+    }
+}
+
+/* Fix for sticky hover effects on touch devices */
+@media (hover: hover) {
+    .btn:hover,
+    .skill-tag:hover,
+    .project-card:hover,
+    .filter-btn:hover,
+    .nav-links a:hover {
+        transform: translateY(-3px);
+    }
+}
+
+/* Print media updates */
+@media print {
+    section {
+        page-break-inside: avoid;
+    }
+    
+    .project-card {
+        break-inside: avoid;
+        border: 1px solid #ddd;
+        box-shadow: none;
+    }
+    
+    .skill-tag {
+        border: 1px solid #ddd;
+        box-shadow: none;
+    }
+}
