@@ -142,19 +142,27 @@
 .reviews-button .btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 30px;
+    gap: 12px;
+    padding: 15px 35px;
     font-size: 1.1rem;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(42, 82, 152, 0.2);
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .reviews-button .btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 35px rgba(42, 82, 152, 0.3);
 }
 
 .reviews-button .btn i {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.reviews-button .btn:hover i {
+    transform: rotate(15deg);
 }
 
 /* Additional styling for ensuring review cards are clearly visible */
