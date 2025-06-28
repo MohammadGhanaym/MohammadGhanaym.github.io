@@ -802,27 +802,13 @@ img.project-bg-img {
     }
 }
 
-/* Fix for View All Projects Button */
+/* View All Projects Button */
 .projects-view-more {
-    margin-top: 80px !important;
-    padding-top: 40px !important;
-    border-top: 2px solid #f0f0f0;
+    margin-top: 50px;
     position: relative;
     display: flex;
     justify-content: center;
     width: 100%;
-}
-
-.projects-view-more::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background-color: var(--primary-color);
-    border-radius: 2px;
 }
 
 .projects-view-more .btn {
