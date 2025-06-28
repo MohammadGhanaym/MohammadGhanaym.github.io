@@ -1,12 +1,16 @@
 /* Base Styles */
 :root {
-    --primary-color: #2a5298;
-    --secondary-color: #58b792;
-    --dark-color: #333;
-    --light-color: #f4f4f4;
-    --success-color: #5cb85c;
-    --error-color: #d9534f;
-    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --primary-color: #3a6ea5;  /* More accessible blue, works well for colorblind users */
+    --secondary-color: #5d9c7a; /* Muted green that passes contrast checks */
+    --dark-color: #2d3142;    /* Softer dark blue-gray instead of harsh black */
+    --light-color: #f0f2f5;   /* Slightly off-white for reduced eye strain */
+    --bg-color: #f5f7fa;      /* Background with slight blue tint to reduce brightness */
+    --card-bg: #ffffff;       /* Card background color */
+    --text-primary: #3c4353;  /* Main text color, slightly softer than black */
+    --text-secondary: #5c6273; /* Secondary text color for better hierarchy */
+    --success-color: #4d9772; /* More muted success green */
+    --error-color: #b55a55;   /* Softer error red */
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     --transition: all 0.3s ease-in-out;
 }
 
@@ -19,8 +23,8 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: var(--dark-color);
-    background-color: #fff;
+    color: var(--text-primary);
+    background-color: var(--bg-color);
     overflow-x: hidden;
 }
 
@@ -105,7 +109,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: white;
+    background-color: var(--card-bg);
     box-shadow: var(--box-shadow);
     z-index: 1000;
 }
@@ -167,7 +171,7 @@ nav .container {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('../images/hero-bg.jpg');
+    background: linear-gradient(to right, rgba(245, 247, 250, 0.95), rgba(240, 242, 245, 0.85)), url('../images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     margin-top: 70px;
@@ -322,15 +326,15 @@ nav .container {
 }
 
 .skill-tag {
-    background-color: #f5f7fa;
-    border: 1px solid rgba(42, 82, 152, 0.2);
+    background-color: rgba(58, 110, 165, 0.08);
+    border: 1px solid rgba(58, 110, 165, 0.15);
     border-radius: 30px;
     padding: 10px 20px;
     font-size: 1rem;
     color: var(--primary-color);
     display: inline-flex;
     align-items: center;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
     transition: all 0.3s ease;
     margin: 5px;
 }
@@ -366,9 +370,18 @@ nav .container {
         font-size: 0.9rem;
     }
     
+    .project-tags {
+        gap: 6px;
+    }
+    
     .project-tags span {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+    }
+    
+    .project-tags span i {
         font-size: 0.8rem;
-        padding: 4px 10px;
+        margin-right: 4px;
     }
 }
 
@@ -383,19 +396,19 @@ nav .container {
 
 .filter-btn {
     padding: 8px 16px;
-    background: #f5f5f5;
-    border: 1px solid #e0e0e0;
+    background: rgba(58, 110, 165, 0.08);
+    border: 1px solid rgba(58, 110, 165, 0.12);
     border-radius: 30px;
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 500;
-    color: #555;
+    color: var(--text-secondary);
     transition: all 0.3s ease;
 }
 
 .filter-btn:hover {
-    background: #eaeaea;
-    color: #333;
+    background: rgba(58, 110, 165, 0.15);
+    color: var(--text-primary);
     transform: translateY(-2px);
 }
 
@@ -432,9 +445,9 @@ nav .container {
 }
 
 .project-card {
-    background-color: white;
+    background-color: var(--card-bg);
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
     overflow: hidden;
     transition: all 0.3s ease;
     height: 100%;
@@ -490,7 +503,7 @@ img.project-bg-img {
 }
 
 .project-info {
-    padding: 24px;
+    padding: 24px 20px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -499,7 +512,7 @@ img.project-bg-img {
 .project-info h3 {
     margin-top: 0;
     font-size: 1.4rem;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 10px;
     transition: color 0.3s ease;
 }
@@ -509,7 +522,7 @@ img.project-bg-img {
 }
 
 .project-info p {
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 15px;
     flex-grow: 1;
@@ -519,33 +532,37 @@ img.project-bg-img {
 .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: 20px;
+    margin-top: 5px;
 }
 
 .project-tags span {
-    font-size: 0.85rem;
-    padding: 6px 14px;
-    border-radius: 50px;
-    background-color: #f2f7ff;
-    color: #3a86ff;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    color: var(--primary-color);
     font-weight: 500;
     display: inline-flex;
     align-items: center;
-    margin: 4px;
-    border: 1px solid rgba(58, 134, 255, 0.1);
+    position: relative;
     transition: all 0.25s ease;
+    border-left: 2px solid var(--primary-color);
+    background: linear-gradient(to right, rgba(58, 110, 165, 0.08), rgba(58, 110, 165, 0.02));
+    border-radius: 2px;
+    letter-spacing: 0.3px;
 }
 
 .project-tags span:hover {
-    background-color: #e7f0ff;
+    color: var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, rgba(58, 110, 165, 0.12), rgba(58, 110, 165, 0.04));
 }
 
 .project-tags span i {
-    margin-right: 5px;
+    margin-right: 6px;
     font-size: 0.9rem;
+    color: var(--primary-color);
+    opacity: 0.9;
 }
 
 /* Project links */
@@ -609,21 +626,21 @@ img.project-bg-img {
 
 /* Add subtle background contrast between sections */
 .projects {
-    background-color: #f9f9fa;
+    background-color: var(--bg-color);
 }
 
 .skills {
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 .about {
-    background-color: #f9f9fa;
+    background-color: var(--bg-color);
 }
 
 /* Reviews section background handled in reviews.css */
 
 .contact {
-    background-color: #f9f9fa;
+    background-color: var(--bg-color);
 }
 
 /* Contact Section Styling */
@@ -649,10 +666,10 @@ img.project-bg-img {
 .contact-item {
     min-width: auto;
     max-width: none;
-    background-color: white;
+    background-color: var(--card-bg);
     border-radius: 12px;
     padding: 25px 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -956,5 +973,89 @@ footer {
     
     .copyright {
         margin-bottom: 15px;
+    }
+}
+
+/* Technology-specific tag styles */
+.tag-python {
+    border-left-color: #3776ab; /* Python blue */
+    color: #3776ab;
+    background: linear-gradient(to right, rgba(55, 118, 171, 0.08), rgba(55, 118, 171, 0.02));
+}
+.tag-python:hover {
+    background: linear-gradient(to right, rgba(55, 118, 171, 0.12), rgba(55, 118, 171, 0.04));
+}
+.tag-python i {
+    color: #3776ab;
+}
+
+.tag-pandas {
+    border-left-color: #150458; /* Pandas dark blue */
+    color: #150458;
+    background: linear-gradient(to right, rgba(21, 4, 88, 0.08), rgba(21, 4, 88, 0.02));
+}
+.tag-pandas:hover {
+    background: linear-gradient(to right, rgba(21, 4, 88, 0.12), rgba(21, 4, 88, 0.04));
+}
+.tag-pandas i {
+    color: #150458;
+}
+
+.tag-numpy {
+    border-left-color: #4DABCF; /* NumPy blue */
+    color: #4DABCF;
+    background: linear-gradient(to right, rgba(77, 171, 207, 0.08), rgba(77, 171, 207, 0.02));
+}
+.tag-numpy:hover {
+    background: linear-gradient(to right, rgba(77, 171, 207, 0.12), rgba(77, 171, 207, 0.04));
+}
+.tag-numpy i {
+    color: #4DABCF;
+}
+
+.tag-matplotlib {
+    border-left-color: #11557C; /* Matplotlib blue */
+    color: #11557C;
+    background: linear-gradient(to right, rgba(17, 85, 124, 0.08), rgba(17, 85, 124, 0.02));
+}
+.tag-matplotlib:hover {
+    background: linear-gradient(to right, rgba(17, 85, 124, 0.12), rgba(17, 85, 124, 0.04));
+}
+.tag-matplotlib i {
+    color: #11557C;
+}
+
+.tag-powerbi {
+    border-left-color: #F2C811; /* Power BI gold */
+    color: #7F6A0A;
+    background: linear-gradient(to right, rgba(242, 200, 17, 0.08), rgba(242, 200, 17, 0.02));
+}
+.tag-powerbi:hover {
+    background: linear-gradient(to right, rgba(242, 200, 17, 0.12), rgba(242, 200, 17, 0.04));
+}
+.tag-powerbi i {
+    color: #7F6A0A;
+}
+
+.tag-excel {
+    border-left-color: #1D6F42; /* Excel green */
+    color: #1D6F42;
+    background: linear-gradient(to right, rgba(29, 111, 66, 0.08), rgba(29, 111, 66, 0.02));
+}
+.tag-excel:hover {
+    background: linear-gradient(to right, rgba(29, 111, 66, 0.12), rgba(29, 111, 66, 0.04));
+}
+.tag-excel i {
+    color: #1D6F42;
+}
+
+/* Ensure tag colors work well with dark mode if implemented */
+@media (prefers-color-scheme: dark) {
+    .project-tags span {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+    }
+    
+    .project-tags span:hover {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
     }
 }
