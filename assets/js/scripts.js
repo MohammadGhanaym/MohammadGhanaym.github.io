@@ -73,6 +73,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
     
+    // Helper function to scroll active filter button into view (for mobile)
+    function scrollActiveFilterIntoView() {
+        const activeFilter = document.querySelector('.filter-btn.active');
+        const filterContainer = document.querySelector('.project-filters');
+        
+        if (activeFilter && filterContainer && window.innerWidth <= 768) {
+            // Calculate position to center the button in the scroll area
+            const containerWidth = filterContainer.offsetWidth;
+            const buttonLeft = activeFilter.offsetLeft;
+            const buttonWidth = activeFilter.offsetWidth;
+            
+            // Scroll to position the button in center
+            filterContainer.scrollLeft = buttonLeft - (containerWidth / 2) + (buttonWidth / 2);
+            
+            // Hide scroll hint after user interaction
+            const scrollHint = document.querySelector('.scroll-hint');
+            if (scrollHint) {
+                setTimeout(() => {
+                    scrollHint.style.display = 'none';
+                }, 1000);
+            }
+        }
+    }
+    
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             // Remove active class from all buttons
@@ -82,6 +106,9 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.classList.add('active');
             
             const filter = btn.getAttribute('data-filter');
+            
+            // Scroll active filter into view (for mobile)
+            scrollActiveFilterIntoView();
             
             projectCards.forEach(card => {
                 if (filter === 'all') {
@@ -356,4 +383,8 @@ document.addEventListener('DOMContentLoaded', function() {
             this.alt = 'Review image could not be loaded';
         });
     });
+    
+    // Call the function on page load to ensure the active filter is visible
+    window.addEventListener('load', scrollActiveFilterIntoView);
+    window.addEventListener('resize', scrollActiveFilterIntoView);
 });

@@ -39,6 +39,9 @@
     cursor: pointer;
     transition: all 0.3s ease;
     color: #555;
+    margin-right: 2px;
+    margin-left: 2px;
+    min-width: 40px; /* Ensure buttons aren't too small */
 }
 
 .filter-btn:hover,
@@ -377,8 +380,12 @@
         gap: 25px;
     }
     
+    .project-filters-container {
+        margin-bottom: 20px;
+    }
+    
     .project-filters {
-        margin-bottom: 15px;
+        margin-bottom: 0;
     }
     
     .project-links {
@@ -418,8 +425,9 @@
     }
     
     .filter-btn {
-        font-size: 0.8rem;
-        padding: 6px 12px;
+        font-size: 0.75rem;
+        padding: 5px 10px;
+        min-width: auto;
     }
     
     /* Further adjustments for project tags */

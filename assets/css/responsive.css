@@ -224,14 +224,7 @@ html {
         margin-right: auto;
     }
     
-    .project-filters {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .filter-btn {
-        margin-bottom: 10px;
-    }
+    /* Project filters styling moved to responsive-enhancements.css for better mobile support */
 }
 
 @media screen and (max-width: 480px) {

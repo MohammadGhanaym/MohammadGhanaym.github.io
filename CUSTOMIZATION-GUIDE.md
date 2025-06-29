@@ -51,34 +51,26 @@ This guide will help you easily customize your portfolio website. Follow these i
 
 ### Project Skills Tags
 
-Use the predefined skill tags with appropriate icons:
+Use the predefined skill tags with appropriate icons. All tags now use a consistent oval design with the same color:
 
 ```html
 <!-- Python related -->
-<span class="tag-python"><i class="fab fa-python"></i>Python</span>
-<span class="tag-pandas"><i class="fas fa-table"></i>Pandas</span>
-<span class="tag-numpy"><i class="fas fa-calculator"></i>NumPy</span>
-<span class="tag-matplotlib"><i class="fas fa-chart-line"></i>Matplotlib</span>
-<span class="tag-scikit"><i class="fas fa-robot"></i>SciKit-Learn</span>
+<span><i class="fab fa-python"></i>Python</span>
+<span><i class="fas fa-table"></i>Pandas</span>
+<span><i class="fas fa-calculator"></i>NumPy</span>
+<span><i class="fas fa-chart-line"></i>Matplotlib</span>
+<span><i class="fas fa-robot"></i>SciKit-Learn</span>
 
 <!-- Database related -->
-<span class="tag-sql"><i class="fas fa-database"></i>SQL</span>
+<span><i class="fas fa-database"></i>SQL</span>
 
 <!-- BI Tools -->
-<span class="tag-tableau"><i class="fas fa-chart-pie"></i>Tableau</span>
-<span class="tag-powerbi"><i class="fas fa-chart-bar"></i>Power BI</span>
-<span class="tag-excel"><i class="fas fa-file-excel"></i>Excel</span>
+<span><i class="fas fa-chart-pie"></i>Tableau</span>
+<span><i class="fas fa-chart-bar"></i>Power BI</span>
+<span><i class="fas fa-file-excel"></i>Excel</span>
 ```
 
-To add a new skill tag type, add a new CSS class in the `styles.css` file:
-
-```css
-.project-tags .tag-newskill {
-    background-color: rgba(R, G, B, 0.1);
-    color: #HEXCOLOR;
-    border: 1px solid rgba(R, G, B, 0.3);
-}
-```
+Note: The new design no longer uses technology-specific class names like `tag-python`. All tags share the same styling for better visual consistency. The tags automatically inherit the primary color theme from the website.
 
 ### Creating a New Project Details Page
 
@@ -184,13 +176,19 @@ For testimonials without an actual screenshot, you can create a branded placehol
 
 ```css
 :root {
-    --primary-color: #2a5298;    /* Main accent color */
-    --secondary-color: #58b792;  /* Secondary accent color */
-    --dark-color: #333;          /* Dark text color */
-    --light-color: #f4f4f4;      /* Light background color */
+    --primary-color: #3a6ea5;    /* More accessible blue, works well for colorblind users */
+    --secondary-color: #5d9c7a;  /* Muted green that passes contrast checks */
+    --dark-color: #2d3142;       /* Softer dark blue-gray instead of harsh black */
+    --light-color: #f0f2f5;      /* Slightly off-white for reduced eye strain */
+    --bg-color: #f5f7fa;         /* Background with slight blue tint */
+    --card-bg: #ffffff;          /* Card background color */
+    --text-primary: #3c4353;     /* Main text color, slightly softer than black */
+    --text-secondary: #5c6273;   /* Secondary text color for better hierarchy */
     /* Other variables */
 }
 ```
+
+Note: After changing the primary color, you may want to update the skill and project tags to match. The skill tags and project tags both use the primary color for their styling.
 
 ### Changing Fonts
 
@@ -209,6 +207,19 @@ h1, h2, h3, h4, h5, h6 {
     /* other styles */
 }
 ```
+
+## CSS File Structure
+
+The portfolio uses a modular CSS approach to make customization and maintenance easier:
+
+1. `styles.css` - Main stylesheet with core variables and base styling
+2. `skills.css` - Styling for the skills section and skill tags
+3. `projects.css` - Styling for project cards and project tags
+4. `reviews.css` - Styling for the testimonials/reviews section
+5. `theme-overrides.css` - Ensures proper styling in different themes (light/dark mode)
+6. Other specialized CSS files for specific purposes
+
+When customizing, start with `styles.css` for global changes, then modify the specific CSS file for the section you want to update.
 
 ## Making Your Contact Form Work
 

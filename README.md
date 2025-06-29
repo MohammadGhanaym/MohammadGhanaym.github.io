@@ -12,6 +12,14 @@ This is a clean, professional portfolio website template designed specifically f
 - Contact form (requires integration with a form service for functionality)
 - Easy to customize and extend
 
+## Design Features
+
+- **Consistent Tag Design**: All skill and project tags share the same oval shape design and consistent color scheme for a clean, professional look.
+- **Responsive Design**: Optimized for all devices from mobile phones to large desktop screens.
+- **Accessibility Features**: Color choices and contrasts follow accessibility guidelines, with proper semantic HTML.
+- **Dark/Light Mode Support**: Supports both dark and light themes based on user preference.
+- **Performance Optimized**: CSS and JS are organized for optimal loading and performance.
+
 ## Project Structure
 
 ```
@@ -19,19 +27,30 @@ portfolio/
 │
 ├── assets/
 │   ├── css/
-│   │   └── styles.css
+│   │   ├── styles.css             # Main stylesheet
+│   │   ├── skills.css             # Skill tags styling
+│   │   ├── projects.css           # Project cards styling
+│   │   ├── reviews.css            # Reviews section styling
+│   │   ├── theme-overrides.css    # Light/dark mode overrides
+│   │   └── [other specialized css files]
+│   │
 │   ├── js/
-│   │   └── scripts.js
-│   └── images/
+│   │   ├── scripts.js             # Main JavaScript
+│   │   ├── project-cards.js       # Project filtering and animation
+│   │   ├── reviews.js             # Reviews display functionality
+│   │   ├── device-handler.js      # Device specific handling
+│   │   └── [other specialized js files]
+│   │
+│   ├── data/                      # Your personal data
+│   │   ├── Clients Feedback/      # Client feedback images
+│   │   │   └── feedback1.PNG, feedback2.PNG, etc.
+│   │   │
+│   │   └── Projects/              # Project descriptions and images
+│   │       └── [project folders with descriptions and images]
+│   │
+│   └── images/                    # General website images
 │
-├── feedback/
-│   └── index.html
-│
-├── projects/
-│   ├── index.html
-│   └── project1.html
-│
-└── index.html
+└── index.html                    # Main portfolio page
 ```
 
 ## How to Customize
@@ -58,8 +77,9 @@ portfolio/
    - Customize colors by modifying the CSS variables in `assets/css/styles.css`:
      ```css
      :root {
-         --primary-color: #2a5298;
-         --secondary-color: #58b792;
+         --primary-color: #3a6ea5;    /* More accessible blue, works well for colorblind users */
+         --secondary-color: #5d9c7a;  /* Muted green that passes contrast checks */
+         --dark-color: #2d3142;       /* Softer dark blue-gray instead of harsh black */
          /* other variables */
      }
      ```
@@ -124,27 +144,35 @@ The contact form in this template is set up for visual demonstration but doesn't
 - **Case Studies**: For each project, tell a story: problem, approach, solution, and results.
 - **Skills**: Be honest about your skill levels. It's better to show proficiency in fewer skills than to claim expertise in many.
 
-## Final Review (June 15, 2025)
+## Final Review (June 29, 2025)
 
 The portfolio has been fully optimized with the following improvements:
 
 1. **Enhanced User Experience:**
    - Improved client feedback display with polaroid-style image frames
-   - Optimized skill tags for better visibility and organization
-   - Added dedicated CSS for feedback gallery
+   - Optimized skill tags for better visibility with a consistent oval design
+   - Streamlined project cards with uniform 2-line title display
+   - Added dedicated CSS files for better organization and maintainability
 
 2. **Technical Optimizations:**
    - Updated meta tags for better SEO
    - Improved responsive design for all screen sizes
-   - Ensured consistent styling across all pages
-   - Added proper title tags to all pages
+   - Ensured consistent styling across all pages and components
+   - Added proper title tags and favicon support
+   - Implemented modular CSS architecture for better maintainability
 
-3. **Content Updates:**
+3. **Visual Consistency:**
+   - Unified all skill tags and project tags with the same design and color scheme
+   - Created consistent card heights and spacing for better visual rhythm
+   - Implemented a clean, professional color palette that works well in both dark and light modes
+   - Ensured all interactive elements follow the same hover and focus patterns
+
+4. **Content Updates:**
    - Updated copyright information to current year (2025)
-   - Ensured consistent display of Mohammad's information across all pages
-   - Improved navigation between feedback, projects, and main pages
+   - Ensured consistent display of information across all sections
+   - Improved navigation and user flow throughout the portfolio
 
-The portfolio is now fully optimized for GitHub Pages deployment with a professional, clean design that effectively showcases Mohammad's skills and experience as a Data Analyst.
+The portfolio is now fully optimized for GitHub Pages deployment with a modern, clean design that effectively showcases data analysis skills and experience with a focus on professional presentation and accessibility.
 
 ---
 
