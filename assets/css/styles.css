@@ -316,74 +316,11 @@ nav .container {
 }
 
 /* Skills and Project Tags Formatting */
-.skills-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    margin: 40px 0;
-    width: 100%;
-}
+/* Skill tag styling moved to skills.css */
 
-.skill-tag {
-    background-color: rgba(58, 110, 165, 0.08);
-    border: 1px solid rgba(58, 110, 165, 0.15);
-    border-radius: 30px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: var(--primary-color);
-    display: inline-flex;
-    align-items: center;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
-    transition: all 0.3s ease;
-    margin: 5px;
-}
+/* Project tag styles moved to projects.css */
 
-.skill-tag i {
-    margin-right: 8px;
-    font-size: 1.1rem;
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.project-tags span {
-    font-size: 0.85rem;
-    padding: 5px 12px;
-    border-radius: 50px;
-    background-color: #f2f7ff;
-    color: #3a86ff;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    margin: 3px;
-}
-
-@media screen and (max-width: 576px) {
-    .skill-tag {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
-    
-    .project-tags {
-        gap: 6px;
-    }
-    
-    .project-tags span {
-        font-size: 0.75rem;
-        padding: 3px 8px;
-    }
-    
-    .project-tags span i {
-        font-size: 0.8rem;
-        margin-right: 4px;
-    }
-}
+/* Small screen styles moved to their respective CSS files */
 
 /* Projects Section */
 .project-filters {
@@ -456,6 +393,7 @@ nav .container {
     width: 100%;
     max-width: 380px;
     border: 1px solid rgba(0, 0, 0, 0.05);
+    min-height: 430px; /* Ensure consistent minimum height */
 }
 
 .project-card:hover {
@@ -503,7 +441,7 @@ img.project-bg-img {
 }
 
 .project-info {
-    padding: 24px 20px;
+    padding: 20px 18px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -528,42 +466,7 @@ img.project-bg-img {
     flex-grow: 1;
 }
 
-/* Project tags */
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-    margin-top: 5px;
-}
-
-.project-tags span {
-    font-size: 0.8rem;
-    padding: 4px 10px;
-    color: var(--primary-color);
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    transition: all 0.25s ease;
-    border-left: 2px solid var(--primary-color);
-    background: linear-gradient(to right, rgba(58, 110, 165, 0.08), rgba(58, 110, 165, 0.02));
-    border-radius: 2px;
-    letter-spacing: 0.3px;
-}
-
-.project-tags span:hover {
-    color: var(--primary-color);
-    transform: translateY(-2px);
-    background: linear-gradient(to right, rgba(58, 110, 165, 0.12), rgba(58, 110, 165, 0.04));
-}
-
-.project-tags span i {
-    margin-right: 6px;
-    font-size: 0.9rem;
-    color: var(--primary-color);
-    opacity: 0.9;
-}
+/* Project tags styling moved to projects.css for consistency */
 
 /* Project links */
 .project-links {
@@ -635,6 +538,10 @@ img.project-bg-img {
 
 .about {
     background-color: var(--bg-color);
+}
+
+.resume {
+    background-color: #ffffff;
 }
 
 /* Reviews section background handled in reviews.css */
@@ -806,7 +713,7 @@ img.project-bg-img {
     }
     
     .project-card {
-        min-height: 450px;
+        min-height: 430px; /* Match the global value for consistency */
     }
     
     .project-info h3 {
@@ -887,11 +794,7 @@ img.project-bg-img {
         transform: translateY(0);
     }
     
-    /* Project card improvements for mobile */
-    .project-tags {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+    /* Project card improvements for mobile - responsive project tag styles moved to projects.css */
     
     .project-info {
         padding: 15px;
@@ -976,86 +879,4 @@ footer {
     }
 }
 
-/* Technology-specific tag styles */
-.tag-python {
-    border-left-color: #3776ab; /* Python blue */
-    color: #3776ab;
-    background: linear-gradient(to right, rgba(55, 118, 171, 0.08), rgba(55, 118, 171, 0.02));
-}
-.tag-python:hover {
-    background: linear-gradient(to right, rgba(55, 118, 171, 0.12), rgba(55, 118, 171, 0.04));
-}
-.tag-python i {
-    color: #3776ab;
-}
-
-.tag-pandas {
-    border-left-color: #150458; /* Pandas dark blue */
-    color: #150458;
-    background: linear-gradient(to right, rgba(21, 4, 88, 0.08), rgba(21, 4, 88, 0.02));
-}
-.tag-pandas:hover {
-    background: linear-gradient(to right, rgba(21, 4, 88, 0.12), rgba(21, 4, 88, 0.04));
-}
-.tag-pandas i {
-    color: #150458;
-}
-
-.tag-numpy {
-    border-left-color: #4DABCF; /* NumPy blue */
-    color: #4DABCF;
-    background: linear-gradient(to right, rgba(77, 171, 207, 0.08), rgba(77, 171, 207, 0.02));
-}
-.tag-numpy:hover {
-    background: linear-gradient(to right, rgba(77, 171, 207, 0.12), rgba(77, 171, 207, 0.04));
-}
-.tag-numpy i {
-    color: #4DABCF;
-}
-
-.tag-matplotlib {
-    border-left-color: #11557C; /* Matplotlib blue */
-    color: #11557C;
-    background: linear-gradient(to right, rgba(17, 85, 124, 0.08), rgba(17, 85, 124, 0.02));
-}
-.tag-matplotlib:hover {
-    background: linear-gradient(to right, rgba(17, 85, 124, 0.12), rgba(17, 85, 124, 0.04));
-}
-.tag-matplotlib i {
-    color: #11557C;
-}
-
-.tag-powerbi {
-    border-left-color: #F2C811; /* Power BI gold */
-    color: #7F6A0A;
-    background: linear-gradient(to right, rgba(242, 200, 17, 0.08), rgba(242, 200, 17, 0.02));
-}
-.tag-powerbi:hover {
-    background: linear-gradient(to right, rgba(242, 200, 17, 0.12), rgba(242, 200, 17, 0.04));
-}
-.tag-powerbi i {
-    color: #7F6A0A;
-}
-
-.tag-excel {
-    border-left-color: #1D6F42; /* Excel green */
-    color: #1D6F42;
-    background: linear-gradient(to right, rgba(29, 111, 66, 0.08), rgba(29, 111, 66, 0.02));
-}
-.tag-excel:hover {
-    background: linear-gradient(to right, rgba(29, 111, 66, 0.12), rgba(29, 111, 66, 0.04));
-}
-.tag-excel i {
-    color: #1D6F42;
-}
-
-/* Ensure tag colors work well with dark mode if implemented */
-@media (prefers-color-scheme: dark) {
-    .project-tags span {
-        background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
-    }
-    
-    .project-tags span:hover {
-        background: linear-gradient(to right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
-    }
-}
+/* Technology-specific tag styles moved to projects.css */

@@ -11,32 +11,173 @@
 .skills-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 15px;
     justify-content: center;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 15px;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    border-radius: 10px;
+    position: relative;
 }
 
+/* Modern skill tag design for data analyst skills */
 .skill-tag {
-    background-color: #f8f9fa;
-    border: 1px solid #eaeaea;
-    border-radius: 30px;
-    padding: 8px 18px;
-    font-size: 0.95rem;
-    color: #333;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    margin: 5px;
+    border-radius: 50px; /* Changed to rounded/oval shape */
+    background-color: rgba(58, 110, 165, 0.1); /* Light blue background */
+    color: var(--text-primary);
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    letter-spacing: 0.3px;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    border: none; /* Remove border */
 }
 
-.skill-tag:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    background-color: #f1f7ff;
+/* Remove the blue notch */
+.skill-tag::before {
+    display: none; /* Hide the blue notch */
 }
 
 .skill-tag i {
-    color: #2a5298;
-    font-size: 1.1rem;
+    margin-right: 10px;
+    font-size: 1rem;
+    color: #3a6ea5;
+    width: 24px; /* Slightly smaller */
+    height: 24px; /* Slightly smaller */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Apply consistent color to all skill tags */
+.skill-tag {
+    color: #3a6ea5; /* Text color matches icon color */
+}
+
+.skill-tag i {
+    color: #3a6ea5;
+    background: none; /* Remove icon background */
+}
+
+/* Technology-specific skill tag styling - using consistent primary color */
+.skill-tag.python-skill,
+.skill-tag.python-skill i,
+.skill-tag:has(i.fa-python) {
+    --skill-color: #3a6ea5;
+}
+
+.skill-tag.sql-skill,
+.skill-tag.sql-skill i,
+.skill-tag:has(i.fa-database):nth-of-type(1) {
+    --skill-color: #3a6ea5;
+}
+
+.skill-tag.excel-skill,
+.skill-tag.excel-skill i,
+.skill-tag:has(i.fa-file-excel) {
+    --skill-color: #3a6ea5;
+}
+
+.skill-tag.powerbi-skill,
+.skill-tag.powerbi-skill i,
+.skill-tag:has(i.fa-chart-bar) {
+    --skill-color: #3a6ea5;
+}
+
+.skill-tag.pandas-skill,
+.skill-tag.pandas-skill i,
+.skill-tag:has(i.fa-table) {
+    --skill-color: #3a6ea5;
+}
+
+.skill-tag.numpy-skill,
+.skill-tag.numpy-skill i,
+.skill-tag:has(i.fa-calculator) {
+    --skill-color: #3a6ea5;
+}
+
+.skill-tag.matplotlib-skill,
+.skill-tag.matplotlib-skill i,
+.skill-tag:has(i.fa-chart-line) {
+    --skill-color: #3a6ea5;
+}
+
+.skill-tag.seaborn-skill,
+.skill-tag.seaborn-skill i,
+.skill-tag:has(i.fa-chart-area) {
+    --skill-color: #3a6ea5;
+}
+
+.skill-tag.database-skill,
+.skill-tag.database-skill i,
+.skill-tag:has(i.fa-database):nth-of-type(2) {
+    --skill-color: #3a6ea5;
+}
+
+.skill-tag.server-skill,
+.skill-tag.server-skill i,
+.skill-tag:has(i.fa-server) {
+    --skill-color: #3a6ea5;
+}
+
+.skill-tag.ssis-skill,
+.skill-tag.ssis-skill i,
+.skill-tag:has(i.fa-exchange-alt) {
+    --skill-color: #3a6ea5;
+}
+
+.skill-tag.stats-skill,
+.skill-tag.stats-skill i,
+.skill-tag:has(i.fa-chart-pie) {
+    --skill-color: #3a6ea5;
+}
+
+.skill-tag.model-skill,
+.skill-tag.model-skill i,
+.skill-tag:has(i.fa-project-diagram) {
+    --skill-color: #3a6ea5;
+}
+
+.skill-tag.eda-skill,
+.skill-tag.eda-skill i,
+.skill-tag:has(i.fa-search) {
+    --skill-color: #3a6ea5;
+}
+
+/* Define RGB values for color manipulation - using consistent primary color */
+:root {
+    --primary-color-rgb: 58, 110, 165;
+    --skill-color-rgb: 58, 110, 165; /* All skills use the same color */
+}
+
+/* Apply consistent RGB variable to all icon backgrounds */
+.skill-tag i {
+    background: rgba(var(--skill-color-rgb), 0.1);
+}
+
+/* Add a slight animation on hover */
+.skill-tag:hover {
+    transform: none; /* Remove hover transform */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* Keep consistent box-shadow */
+}
+
+/* Add a visual flourish to make the skill section stand out */
+.skills-tags::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    width: 60px;
+    height: 5px;
+    background: var(--primary-color);
+    border-radius: 5px;
+    transform: translateX(-50%);
 }
 
 /* Responsive adjustments */
@@ -61,12 +202,20 @@
 
 @media screen and (max-width: 768px) {
     .skills-tags {
-        gap: 8px;
+        padding: 12px 10px;
+        gap: 10px;
     }
     
     .skill-tag {
-        padding: 6px 14px;
         font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+    
+    .skill-tag i {
+        width: 26px;
+        height: 26px;
+        font-size: 0.9rem;
+        margin-right: 8px;
     }
 }
 
@@ -84,15 +233,59 @@
 
 @media screen and (max-width: 480px) {
     .skills-tags {
-        gap: 6px;
+        padding: 10px 8px;
+        gap: 8px;
     }
     
     .skill-tag {
         font-size: 0.8rem;
         padding: 5px 10px;
+        margin: 3px;
     }
     
     .skill-tag i {
-        font-size: 0.9rem;
+        width: 24px;
+        height: 24px;
+        font-size: 0.85rem;
+        margin-right: 6px;
     }
+    
+    .skills-tags::before {
+        width: 40px;
+        height: 4px;
+    }
+}
+
+/* Light mode explicit styles to override any dark mode styles that might be applied incorrectly */
+:root {
+    --card-background: #ffffff;
+    --tag-background: #ffffff;
+    --text-color: var(--text-primary);
+    --skills-bg: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+}
+
+/* Ensure light mode styles are explicitly set */
+.skill-tag {
+    background-color: var(--tag-background);
+    color: var(--text-color);
+}
+
+.skills-tags {
+    background: var(--skills-bg);
+}
+
+/* Class-based dark mode option for better control */
+.dark-mode .skill-tag {
+    background-color: rgba(58, 110, 165, 0.2) !important; /* Slightly darker blue background */
+    color: #a8c7e8 !important; /* Lighter blue text for better contrast */
+    border: none !important;
+}
+
+.dark-mode .skill-tag i {
+    background: none !important;
+    color: #a8c7e8 !important; /* Lighter blue icon for better contrast */
+}
+
+.dark-mode .skills-tags {
+    background: linear-gradient(to bottom right, rgba(30, 35, 45, 0.9), rgba(35, 40, 50, 0.7));
 }

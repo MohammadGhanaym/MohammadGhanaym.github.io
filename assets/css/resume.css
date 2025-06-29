@@ -1,0 +1,116 @@
+/**
+ * Resume section styles
+ * Provides professional styling for the resume download section
+ */
+
+/* Resume container styling */
+.resume-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.resume-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resume-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 650px;
+}
+
+/* Resume action buttons */
+.resume-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.resume-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 200px;
+    padding: 14px 25px;
+}
+
+.resume-actions .btn i {
+    font-size: 1.2rem;
+}
+
+/* Resume highlights */
+.resume-highlights {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--bg-color);
+    padding: 12px 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.highlight-item i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.highlight-item span {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .resume-container {
+        padding: 30px 20px;
+    }
+    
+    .resume-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .resume-actions .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .highlight-item {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .resume-container {
+        padding: 25px 15px;
+    }
+    
+    .resume-description {
+        font-size: 1rem;
+    }
+    
+    .resume-highlights {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

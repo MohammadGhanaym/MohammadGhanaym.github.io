@@ -13,6 +13,14 @@
     max-width: 1300px;
 }
 
+/* Create visual consistency between projects and skills sections */
+.projects-grid-container {
+    max-width: 1200px;
+    margin: 30px auto 20px;
+    padding: 15px;
+    position: relative;
+}
+
 /* Filter buttons responsiveness */
 .project-filters {
     display: flex;
@@ -43,11 +51,23 @@
 /* Project card responsive styling */
 .project-card {
     position: relative;
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease;
     border: 1px solid #eaeaea;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Remove left border and before element */
+.project-card {
+    border-left: none; /* Remove the blue notch */
+    border-radius: 8px; /* Consistent border radius */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card::before {
+    display: none; /* Remove the blue notch */
 }
 
 /* Refined project card design with no shading */
@@ -56,21 +76,57 @@
     border-color: #d0d0d0;
 }
 
-/* Remove the box-shadow */
-.project-card {
-    box-shadow: none;
-}
-
 /* Subtle zoom effect on hover */
 .project-card:hover .project-bg-img {
     transform: scale(1.05);
 }
 
-/* Project info section */
+/* Enhanced project info styling for better readability and hierarchy */
 .project-info {
-    padding: 20px;
-    background-color: white;
+    padding: 24px 22px;
+    background-color: #ffffff;
     border-top: none;
+}
+
+.project-info h3 {
+    margin-top: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333333; /* Explicit dark color for better visibility */
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.3;
+    height: 2.6em; /* Force consistent height for 2 lines */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+/* Add a subtle underline to project titles */
+.project-info h3:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+    margin-top: 6px;
+    opacity: 0.7;
+}
+
+.project-card:hover .project-info h3 {
+    color: var(--primary-color);
+}
+
+/* Project description styling */
+.project-info p {
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
 }
 
 /* Category badge styling */
@@ -78,34 +134,78 @@
     display: none;
 }
 
-/* Project tags styling - more subdued */
+/* Project tags styling to match skill tags - simple oval design */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 15px;
+    gap: 6px;
+    margin: 10px 0;
+    min-height: 70px; /* Ensure consistent space for tags */
 }
 
-.project-tags span {
-    background-color: #f7f7f8;
-    color: #666;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.8rem;
+/* Match skill tag design exactly - simple oval shape */
+.project-tags span,
+.project-tags div {
     display: inline-flex;
     align-items: center;
-    transition: all 0.2s ease;
-    border: 1px solid #eaeaea;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    margin: 1px;
+    border-radius: 50px; /* Changed to rounded/oval shape */
+    background-color: rgba(58, 110, 165, 0.1); /* Light blue background */
+    color: #3a6ea5; /* Text color matches icons */
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    letter-spacing: 0.3px;
+    border: none; /* Remove border */
+    transition: none; /* No transitions for non-interactive elements */
 }
 
-.project-tags span:hover {
-    background-color: #f0f0f2;
+/* Remove the blue notch */
+.project-tags span::before,
+.project-tags div::before {
+    display: none; /* Hide the blue notch */
 }
 
-.project-tags span i {
-    margin-right: 5px;
-    font-size: 0.9rem;
-    color: #777; /* More uniform color */
+.project-tags span i,
+.project-tags div i {
+    margin-right: 6px;
+    font-size: 0.85rem;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3a6ea5; /* Icon color */
+    background: none; /* Remove icon background */
+    box-shadow: none; /* Remove icon shadow */
+}
+
+/* Ensure absolutely no hover effects */
+.project-tags span:hover,
+.project-tags div:hover {
+    background-color: rgba(58, 110, 165, 0.1);
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* Global style that overrides all specific tag styles for consistent coloring */
+.project-tags span,
+.project-tags div {
+    border-left-color: #3a6ea5 !important;
+    color: var(--text-primary) !important;
+}
+
+.project-tags span::before,
+.project-tags div::before {
+    background: #3a6ea5 !important;
+}
+
+.project-tags span i,
+.project-tags div i {
+    color: #3a6ea5 !important;
+    background: rgba(58, 110, 165, 0.1) !important;
 }
 
 /* Updated view details link with more subtle styling */
@@ -114,7 +214,7 @@
     color: #555; /* Less intense color - not blue */
     font-weight: 500;
     text-decoration: none;
-    padding: 8px 0;
+    padding: 6px 0;
     position: relative;
     transition: all 0.3s ease;
 }
@@ -250,6 +350,26 @@
     .project-card {
         max-width: 100%;
     }
+    
+    /* Responsive adjustments for project tags */
+    .project-tags {
+        gap: 6px;
+        justify-content: flex-start;
+    }
+    
+    .project-tags span,
+    .project-tags div {
+        font-size: 0.75rem;
+        padding: 5px 12px;
+    }
+    
+    .project-tags span i,
+    .project-tags div i {
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
+        margin-right: 6px;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -270,6 +390,26 @@
         width: 100%;
         text-align: center;
     }
+    
+    /* Project tag responsiveness for smaller screens */
+    .project-tags {
+        gap: 6px;
+    }
+    
+    .project-tags span,
+    .project-tags div {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        margin-bottom: 4px;
+    }
+    
+    .project-tags span i,
+    .project-tags div i {
+        width: 22px;
+        height: 22px;
+        font-size: 0.75rem;
+        margin-right: 5px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -280,5 +420,144 @@
     .filter-btn {
         font-size: 0.8rem;
         padding: 6px 12px;
+    }
+    
+    /* Further adjustments for project tags */
+    .project-tags {
+        gap: 4px;
+    }
+    
+    .project-tags span {
+        font-size: 0.65rem;
+        padding: 3px 8px;
+        margin: 1px;
+    }
+    
+    .project-tags span i {
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+        margin-right: 4px;
+    }
+}
+
+/**
+ * Project tag styling for data analyst portfolio
+ * Matches the styling of skill tags for consistency
+ */
+
+/* Remove technology-specific color styling for project tags to ensure consistent color scheme */
+.project-tags span, 
+.project-tags div,
+.project-tags span i,
+.project-tags div i {
+    color: #3a6ea5; /* Consistent text/icon color */
+    background-color: rgba(58, 110, 165, 0.1); /* Consistent background */
+}
+
+/* Ensure all tags use the same styling regardless of technology */
+.project-tags [class*="tag-"],
+.project-tags span:has(i),
+.project-tags div:has(i) {
+    color: #3a6ea5;
+}
+
+/* Light mode explicit styles to override any dark mode styles that might be applied incorrectly */
+:root {
+    --project-card-bg: #ffffff;
+    --project-tag-bg: #ffffff;
+    --project-text: var(--text-primary);
+}
+
+/* Ensure light mode styles are explicitly set */
+.project-card {
+    background-color: var(--project-card-bg);
+}
+
+.project-info {
+    background-color: var(--project-card-bg);
+}
+
+.project-tags span,
+.project-tags div {
+    background-color: var(--project-tag-bg);
+    color: var(--project-text);
+}
+
+/* Class-based dark mode option for better control */
+.dark-mode .project-card {
+    background-color: #2a2f3a;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .project-info {
+    background-color: #2a2f3a;
+}
+
+.dark-mode .project-info h3 {
+    color: #e1e6ef;
+}
+
+.dark-mode .project-info p {
+    color: #b4bac5;
+}
+
+.dark-mode .project-tags span,
+.dark-mode .project-tags div {
+    background-color: rgba(58, 110, 165, 0.2) !important;
+    color: #a8c7e8 !important;
+    border: none !important;
+}
+
+.dark-mode .project-tags span i,
+.dark-mode .project-tags div i {
+    background: none !important;
+    color: #a8c7e8 !important;
+}
+
+/* Dark mode support for project tags - only applied when the system is in dark mode */
+@media (prefers-color-scheme: dark) {
+    /* Match the .dark-mode class styles for project tags */
+    .project-tags span,
+    .project-tags div {
+        background-color: rgba(58, 110, 165, 0.2) !important; /* Slightly darker blue background */
+        color: #a8c7e8 !important; /* Lighter blue text for better contrast */
+        border: none !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .project-tags span i,
+    .project-tags div i {
+        background: none !important;
+        color: #a8c7e8 !important; /* Lighter blue icon for better contrast */
+        box-shadow: none;
+    }
+    
+    .project-card {
+        background-color: #2a2f3a;
+        border-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    .project-info {
+        background-color: #2a2f3a;
+    }
+    
+    .project-info h3 {
+        color: #e1e6ef;
+    }
+    
+    .project-info p {
+        color: #b4bac5;
+    }
+    
+    .project-links .btn {
+        background-color: #373e4e;
+        color: #d0d5e0;
+        border-color: #484f61;
+    }
+    
+    .project-links .btn:hover {
+        background-color: var(--primary-color);
+        color: white;
     }
 }

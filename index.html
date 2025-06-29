@@ -14,6 +14,8 @@
     <link rel="manifest" href="assets/favicon/site.webmanifest">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/skills.css">
+    <link rel="stylesheet" href="assets/css/projects.css">
     <link rel="stylesheet" href="assets/css/reviews.css">
     <link rel="stylesheet" href="assets/css/review-enhancements.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
@@ -21,12 +23,15 @@
     <link rel="stylesheet" href="assets/css/device-support.css">
     <link rel="stylesheet" href="assets/css/loading-optimizations.css">
     <link rel="stylesheet" href="assets/css/about.css">
-    <link rel="stylesheet" href="assets/css/skills.css">
-    <link rel="stylesheet" href="assets/css/projects.css">
     <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="stylesheet" href="assets/css/accessibility.css">
     <link rel="stylesheet" href="assets/css/print-styles.css">
     <link rel="stylesheet" href="assets/css/cross-browser.css">
+    <!-- Theme overrides to ensure proper light mode styling -->
+    <link rel="stylesheet" href="assets/css/theme-overrides.css">
+    <link rel="stylesheet" href="assets/css/resume.css">
+    <!-- Theme handler script - loaded early to prevent flash of wrong theme -->
+    <script src="assets/js/theme-handler.js"></script>
     <!-- Immediate animation start script -->
     <script>
         // Preload review images
@@ -56,6 +61,7 @@
                 <li role="none"><a href="#about" role="menuitem">About</a></li>
                 <li role="none"><a href="#skills" role="menuitem">Skills</a></li>
                 <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+                <li role="none"><a href="#resume" role="menuitem">Resume</a></li>
                 <li role="none"><a href="#feedback" role="menuitem">Client Reviews</a></li>
                 <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
             </ul>
@@ -114,20 +120,20 @@
             <h2 class="section-title">My Technical Skills</h2>
             <div class="skills-container">
                 <div class="skills-tags">
-                    <div class="skill-tag"><i class="fab fa-python"></i> Python</div>
-                    <div class="skill-tag"><i class="fas fa-database"></i> SQL</div>
-                    <div class="skill-tag"><i class="fas fa-file-excel"></i> Excel</div>
-                    <div class="skill-tag"><i class="fas fa-chart-bar"></i> Power BI</div>
-                    <div class="skill-tag"><i class="fas fa-table"></i> Pandas</div>
-                    <div class="skill-tag"><i class="fas fa-calculator"></i> NumPy</div>
-                    <div class="skill-tag"><i class="fas fa-chart-line"></i> Matplotlib</div>
-                    <div class="skill-tag"><i class="fas fa-chart-area"></i> Seaborn</div>
-                    <div class="skill-tag"><i class="fas fa-database"></i> Database Design</div>
-                    <div class="skill-tag"><i class="fas fa-server"></i> SQL Server</div>
-                    <div class="skill-tag"><i class="fas fa-exchange-alt"></i> SSIS</div>
-                    <div class="skill-tag"><i class="fas fa-chart-pie"></i> Statistical Analysis</div>
-                    <div class="skill-tag"><i class="fas fa-project-diagram"></i> Data Modeling</div>
-                    <div class="skill-tag"><i class="fas fa-search"></i> Exploratory Data Analysis</div>
+                    <div class="skill-tag python-skill"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill-tag sql-skill"><i class="fas fa-database"></i> SQL</div>
+                    <div class="skill-tag excel-skill"><i class="fas fa-file-excel"></i> Excel</div>
+                    <div class="skill-tag powerbi-skill"><i class="fas fa-chart-bar"></i> Power BI</div>
+                    <div class="skill-tag pandas-skill"><i class="fas fa-table"></i> Pandas</div>
+                    <div class="skill-tag numpy-skill"><i class="fas fa-calculator"></i> NumPy</div>
+                    <div class="skill-tag matplotlib-skill"><i class="fas fa-chart-line"></i> Matplotlib</div>
+                    <div class="skill-tag seaborn-skill"><i class="fas fa-chart-area"></i> Seaborn</div>
+                    <div class="skill-tag database-skill"><i class="fas fa-database"></i> Database Design</div>
+                    <div class="skill-tag server-skill"><i class="fas fa-server"></i> SQL Server</div>
+                    <div class="skill-tag ssis-skill"><i class="fas fa-exchange-alt"></i> SSIS</div>
+                    <div class="skill-tag stats-skill"><i class="fas fa-chart-pie"></i> Statistical Analysis</div>
+                    <div class="skill-tag model-skill"><i class="fas fa-project-diagram"></i> Data Modeling</div>
+                    <div class="skill-tag eda-skill"><i class="fas fa-search"></i> Exploratory Data Analysis</div>
                     <div class="skill-tag"><i class="fas fa-clipboard-list"></i> Power Query</div>
                     <div class="skill-tag"><i class="fas fa-table"></i> Power Pivot</div>
                     <div class="skill-tag"><i class="fas fa-chart-pie"></i> Data Visualization</div>
@@ -160,9 +166,9 @@
                         <h3>Addressing Manufacturing Downtime Challenges</h3>
                         <div class="project-tags">
                             <span class="tag-excel"><i class="fas fa-file-excel"></i>Excel</span>
-                            <span class="tag-excel"><i class="fas fa-table"></i>Power Query</span>
+                            <span class="tag-excel"><i class="fas fa-clipboard-list"></i>Power Query</span>
                             <span class="tag-excel"><i class="fas fa-table"></i>Power Pivot</span>
-                            <span class="tag-excel"><i class="fas fa-chart-pie"></i>Data Visualization</span>
+                            <span class="tag-visualization"><i class="fas fa-chart-pie"></i>Data Visualization</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Addressing%20Manufacturing%20Downtime%20challenges" target="_blank" class="view-details-link"><i class="fab fa-github"></i> View Details</a>
@@ -180,8 +186,8 @@
                         <div class="project-tags">
                             <span class="tag-powerbi"><i class="fas fa-chart-bar"></i>Power BI</span>
                             <span class="tag-excel"><i class="fas fa-file-excel"></i>DAX</span>
-                            <span class="tag-pandas"><i class="fas fa-table"></i>Data Modeling</span>
-                            <span class="tag-matplotlib"><i class="fas fa-chart-line"></i>EDA</span>
+                            <span class="tag-model"><i class="fas fa-project-diagram"></i>Data Modeling</span>
+                            <span class="tag-analytics"><i class="fas fa-search"></i>EDA</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Addressing%20HR%20Workforce%20Challenges" target="_blank" class="view-details-link"><i class="fab fa-github"></i> View Details</a>
@@ -200,7 +206,7 @@
                             <span class="tag-python"><i class="fab fa-python"></i>Python</span>
                             <span class="tag-pandas"><i class="fas fa-table"></i>Pandas</span>
                             <span class="tag-numpy"><i class="fas fa-calculator"></i>NumPy</span>
-                            <span class="tag-matplotlib"><i class="fas fa-chart-line"></i>Data Visualization</span>
+                            <span class="tag-visualization"><i class="fas fa-chart-pie"></i>Data Visualization</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Analyze%20E-commerce%20dataset%20by%20Olist" target="_blank" class="view-details-link"><i class="fab fa-github"></i> View Details</a>
@@ -236,9 +242,9 @@
                         <h3>Customer Personality Analysis</h3>
                         <div class="project-tags">
                             <span class="tag-excel"><i class="fas fa-file-excel"></i>Excel</span>
-                            <span class="tag-excel"><i class="fas fa-table"></i>Power Query</span>
-                            <span class="tag-excel"><i class="fas fa-chart-pie"></i>Data Visualization</span>
-                            <span class="tag-excel"><i class="fas fa-calculator"></i>Statistics</span>
+                            <span class="tag-excel"><i class="fas fa-clipboard-list"></i>Power Query</span>
+                            <span class="tag-visualization"><i class="fas fa-chart-pie"></i>Data Visualization</span>
+                            <span class="tag-stats"><i class="fas fa-chart-pie"></i>Statistical Analysis</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Customer%20Personality%20Analysis" target="_blank" class="view-details-link"><i class="fab fa-github"></i> View Details</a>
@@ -248,6 +254,44 @@
             </div>
             <div class="view-more projects-view-more">
                 <a href="https://github.com/MohammadGhanaym/Data-Analysis-Projects" target="_blank" class="btn primary-btn"><i class="fab fa-github"></i> View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
+        <div class="container">
+            <h2 class="section-title">My Resume</h2>
+            <div class="resume-container">
+                <div class="resume-content">
+                    <p class="resume-description">Looking for a detailed overview of my skills, experience, and qualifications? Download my resume to learn more about my background in data analysis and how I can contribute to your projects.</p>
+                    
+                    <div class="resume-actions">
+                        <a href="assets/data/Mohamed_Hassan_Data_Analyst_CV.pdf" class="btn primary-btn" download>
+                            <i class="fas fa-download"></i>
+                            Download Resume (PDF)
+                        </a>
+                        <a href="https://drive.google.com/file/d/1_25aWijahrZiDvHghGhq-JpzM-uRnQPH/view?usp=sharing" class="btn secondary-btn" target="_blank">
+                            <i class="fab fa-google-drive"></i>
+                            View on Google Drive
+                        </a>
+                    </div>
+                    
+                    <div class="resume-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Data Analysis Skills</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Project Experience</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Education & Certifications</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -364,5 +408,22 @@
     <script src="assets/js/device-handler.js"></script>
     <script src="assets/js/image-handler.js"></script>
     <script src="assets/js/project-cards.js"></script>
+    <!-- Force light mode and enhance project titles -->
+    <script>
+        // Force light mode to ensure correct styling
+        document.documentElement.classList.remove('dark-mode');
+        document.body.classList.remove('dark-mode');
+        
+        // Wait for document to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ensure project titles have proper color
+            const projectTitles = document.querySelectorAll('.project-info h3');
+            if (projectTitles) {
+                projectTitles.forEach(title => {
+                    title.style.color = '#333333';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
