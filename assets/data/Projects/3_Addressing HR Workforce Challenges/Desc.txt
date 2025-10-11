@@ -1,0 +1,15 @@
+Title:Addressing HR Workforce Challenges
+
+Description:In this project, we analyzed HR data to help the company reduce the resignation rate by effectively managing HR to enhance productivity and employee satisfaction.
+
+Skills Used:
+Power BI (Power Query, DAX)
+Descriptive Statistics
+What-if Scenario
+Dashboard Design
+Data Modeling
+Exploratory Data Analysis (EDA)
+Data Visualization and Reporting
+Data Storytelling
+
+Github:https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Addressing%20HR%20Workforce%20Challenges

@@ -1,0 +1,9 @@
+Title: E-commerce Analytics: Sales, Customer Behavior & Marketing Insights
+
+Desc: In this project, I analyzed the product performance, customer behavior, and logistics efficiency for an e-commerce platform, Olist Store. I also extended my analysis to identify the marketing funnel performance and sales reps' effectiveness.
+Skills Used:
+Python (Pandas, Numpy, Matplotlib, Seaborn)
+Descriptive Statistics
+
+Data Visualization
+Github: https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Analyze%20E-commerce%20dataset%20by%20Olist

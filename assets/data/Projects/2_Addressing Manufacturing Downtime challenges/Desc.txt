@@ -1,0 +1,10 @@
+Title: Addressing Manufacturing Downtime Challenges
+Description: In this project, we analyzed productivity and downtime data for a soda bottling production line, which includes information on the operator, product, start and end times, and the factors contributing to downtime for each batch. Monitoring manufacturing lines is very important. It allows you to optimize operations by identifying the factors that cause downtime. By doing so, you'll be able to resolve those issues, reduce downtime, and consequently increase production.
+
+Skills Used:
+
+Excel (Power Query, Power Pivot, DAX, Power Pivot)
+Descriptive Statistics
+Data Visualization
+
+Github: https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Addressing%20Manufacturing%20Downtime%20challenges

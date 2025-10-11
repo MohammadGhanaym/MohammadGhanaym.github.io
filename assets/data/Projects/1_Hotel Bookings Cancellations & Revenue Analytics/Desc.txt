@@ -1,0 +1,11 @@
+Title: Hotel Bookings Cancellations & Revenue Analytics
+
+Desc: In this project, we will analyze a hotels dataset to better understand and reduce booking cancellations. Our goal is to uncover the main reasons behind cancellations, identify which customers are most likely to cancel, and assess how cancellations affect hotel revenue.
+
+Skills Used:
+Power BI, Python, Data Modeling, Power Query, Dashboard Design, DAX, Bookmarks
+Descriptive Statistics
+Data Visualization
+
+
+Github: https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Hotel%20Booking%20Cancellations%20%26%20Revenue%20Analytics
