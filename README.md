@@ -1,24 +1,52 @@
 # Data Analyst Portfolio
 
-This is a clean, professional portfolio website template designed specifically for data analysts. It's built with HTML, CSS, and JavaScript and is ready to be deployed on GitHub Pages.
+A modern, professional portfolio website designed specifically for data analysts. Built with HTML, CSS, and JavaScript, featuring dynamic content management through JSON configuration and optimized for GitHub Pages deployment.
 
-## Features
+## ✨ Key Features
 
-- Responsive design that works on all devices
-- Clean, modern UI with smooth animations
-- Project showcase section with filtering capability
-- Client feedback/testimonials section
-- Skills visualization
-- Contact form (requires integration with a form service for functionality)
-- Easy to customize and extend
+### **🎯 Dynamic Content Management**
+- **JSON-based configuration** for easy content updates without touching HTML
+- **Centralized project management** with `projects-config.json`
+- **Dynamic CV links** supporting both download and Google Drive viewing
+- **Automated feedback image loading** with robust error handling
 
-## Design Features
+### **🎨 Professional Design**
+- **Responsive design** that works perfectly on all devices
+- **Clean, modern UI** with smooth animations and transitions
+- **Project showcase** with advanced filtering and categorization
+- **Animated client reviews** with continuous scrolling display
+- **Consistent tag design** with professional color scheme
 
-- **Consistent Tag Design**: All skill and project tags share the same oval shape design and consistent color scheme for a clean, professional look.
-- **Responsive Design**: Optimized for all devices from mobile phones to large desktop screens.
-- **Accessibility Features**: Color choices and contrasts follow accessibility guidelines, with proper semantic HTML.
-- **Dark/Light Mode Support**: Supports both dark and light themes based on user preference.
-- **Performance Optimized**: CSS and JS are organized for optimal loading and performance.
+### **⚡ Performance & Reliability**
+- **Modular architecture** with specialized CSS and JavaScript files
+- **Robust image loading** with multiple fallback mechanisms
+- **SEO optimized** with proper meta tags and semantic HTML
+- **Accessibility compliant** with WCAG guidelines
+- **Cross-browser compatible** with modern web standards
+
+## 🏗️ Architecture Overview
+
+### **JSON Configuration System**
+The portfolio uses a centralized configuration approach for easy maintenance:
+
+```json
+{
+  "cv": {
+    "downloadPath": "assets/data/Mohamed_Ghanaym_Data_Analyst_CV.pdf",
+    "googleDriveUrl": "https://drive.google.com/file/d/..."
+  },
+  "feedback": {
+    "images": [...]
+  },
+  "projects": [...]
+}
+```
+
+### **Smart Component System**
+- **Dynamic Project Loading**: Projects are automatically rendered from JSON configuration
+- **Intelligent Image Handling**: Robust loading with multiple fallback strategies
+- **Responsive Filtering**: Advanced project categorization and filtering
+- **Animated Reviews**: Continuous scrolling client feedback display
 
 ## Project Structure
 

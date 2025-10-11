@@ -7,10 +7,10 @@
 // Preload review images to ensure animation starts smoothly
 function preloadReviewImages() {
     const reviewImageURLs = [
-        'assets/data/Clients Feedback/feedback1.PNG',
-        'assets/data/Clients Feedback/feedback2.PNG',
-        'assets/data/Clients Feedback/feedback3.PNG',
-        'assets/data/Clients Feedback/feedback4.PNG'
+        'assets/data/Clients%20Feedback/feedback1.PNG',
+        'assets/data/Clients%20Feedback/feedback2.PNG',
+        'assets/data/Clients%20Feedback/feedback3.PNG',
+        'assets/data/Clients%20Feedback/feedback4.PNG'
     ];
     
     reviewImageURLs.forEach(url => {

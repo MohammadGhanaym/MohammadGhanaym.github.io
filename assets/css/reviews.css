@@ -195,6 +195,20 @@
     justify-content: center;
 }
 
+.image-error-placeholder {
+    min-height: 200px;
+    background-color: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #6c757d;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+}
+
 /* Additional style to ensure compatibility across browsers */
 @supports not (animation-play-state: paused) {
     .reviews-scroll {
