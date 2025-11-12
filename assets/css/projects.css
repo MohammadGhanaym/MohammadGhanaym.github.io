@@ -3,6 +3,16 @@
  * Modern card design with horizontal layout (image left, content right)
  */
 
+/* Reset all link styles for project buttons */
+.project-links a,
+.project-links a:link,
+.project-links a:visited,
+.project-links a:hover,
+.project-links a:active {
+    text-decoration: none !important;
+    outline: none;
+}
+
 /* Project grid responsive layout */
 .projects-grid {
     display: grid;
@@ -201,27 +211,33 @@
 }
 
 /* GitHub button - dark theme */
-.project-links a[href*="github"] {
-    background-color: #24292e;
-    color: #ffffff;
+.project-links a[href*="github"],
+.project-links .btn-github {
+    background-color: #24292e !important;
+    color: #ffffff !important;
 }
 
-.project-links a[href*="github"]:hover {
-    background-color: #1a1e22;
+.project-links a[href*="github"]:hover,
+.project-links .btn-github:hover {
+    background-color: #1a1e22 !important;
+    color: #ffffff !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(36, 41, 46, 0.25);
 }
 
 /* Power BI button - official yellow/gold theme */
 .project-links a[href*="powerbi"],
-.project-links a[href*="Power"] {
-    background-color: #f2c811;
-    color: #1e1e1e;
+.project-links a[href*="Power"],
+.project-links .btn-powerbi {
+    background-color: #f2c811 !important;
+    color: #1e1e1e !important;
 }
 
 .project-links a[href*="powerbi"]:hover,
-.project-links a[href*="Power"]:hover {
-    background-color: #e0b900;
+.project-links a[href*="Power"]:hover,
+.project-links .btn-powerbi:hover {
+    background-color: #e0b900 !important;
+    color: #1e1e1e !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(242, 200, 17, 0.35);
 }
@@ -548,13 +564,28 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+/* Responsive Design for Horizontal Project Cards */
+@media screen and (max-width: 992px) {
     .projects-grid {
         grid-template-columns: 1fr;
-        padding: 0 10px;
+        gap: 25px;
     }
     
     .project-card {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .project-image {
+        flex: 0 0 200px;
+        width: 100%;
+    }
+    
+    .project-info h3 {
+        font-size: 1.25rem;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;
@@ -581,6 +612,14 @@
     .project-tags div {
         font-size: 0.7rem !important;
         padding: 5px 12px !important;
+    }
+    
+    .project-links a {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+}
+
 @media screen and (max-width: 576px) {
     .project-image {
         flex: 0 0 150px;
@@ -615,6 +654,4 @@
         font-size: 0.75rem;
         padding: 8px 12px;
     }
-}   }
 }
-    }}
