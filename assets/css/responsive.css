@@ -210,14 +210,15 @@ html {
    PROJECT CARDS RESPONSIVENESS
 ==================================== */
 
+/* Legacy 2-column layout - DISABLED for horizontal card design */
 @media screen and (max-width: 1200px) {
-    .projects-grid {
+    .projects-grid-legacy-disabled {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media screen and (max-width: 768px) {
-    .projects-grid {
+    .projects-grid-legacy-disabled {
         grid-template-columns: 1fr;
         max-width: 500px;
         margin-left: auto;

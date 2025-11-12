@@ -355,7 +355,9 @@ nav .container {
     border-color: var(--primary-color);
 }
 
-.projects-grid {
+/* Legacy projects grid - DISABLED for horizontal card layout */
+/* See projects.css for current grid layout */
+.projects-grid-legacy-disabled {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
@@ -365,14 +367,14 @@ nav .container {
 }
 
 @media screen and (max-width: 768px) {
-    .projects-grid {
+    .projects-grid-legacy-disabled {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 25px;
     }
 }
 
 @media screen and (max-width: 576px) {
-    .projects-grid {
+    .projects-grid-legacy-disabled {
         grid-template-columns: 1fr;
     }
     
@@ -720,7 +722,7 @@ img.project-bg-img {
         font-size: 1.3rem;
     }
     
-    .projects-grid {
+    .projects-grid-legacy-disabled {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         justify-content: center;
     }

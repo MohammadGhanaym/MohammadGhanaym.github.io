@@ -31,6 +31,62 @@
     <link rel="stylesheet" href="assets/css/resume.css">
     <!-- Projects CSS loaded last to override all other styles -->
     <link rel="stylesheet" href="assets/css/projects.css">
+    <!-- Critical CSS override for GitHub Pages compatibility -->
+    <style>
+        /* Force single column grid layout for horizontal cards */
+        .projects-grid,
+        .projects .projects-grid,
+        section.projects .projects-grid,
+        #projects .projects-grid {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            max-width: 1400px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            gap: 30px !important;
+        }
+        
+        /* Ensure horizontal card layout on all screens above 768px */
+        @media screen and (min-width: 769px) {
+            .projects-grid .project-card,
+            .projects .project-card,
+            section.projects .project-card,
+            #projects .project-card {
+                display: flex !important;
+                flex-direction: row !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                min-height: 260px !important;
+            }
+            
+            .projects-grid .project-image,
+            .projects .project-image {
+                flex: 0 0 42% !important;
+                height: auto !important;
+                min-height: 260px !important;
+            }
+            
+            .projects-grid .project-info,
+            .projects .project-info {
+                flex: 1 !important;
+            }
+        }
+        
+        /* Stack vertically on mobile */
+        @media screen and (max-width: 768px) {
+            .projects-grid .project-card,
+            .projects .project-card {
+                flex-direction: column !important;
+            }
+            
+            .projects-grid .project-image,
+            .projects .project-image {
+                flex: 0 0 200px !important;
+                width: 100% !important;
+                height: 200px !important;
+            }
+        }
+    </style>
     <!-- Theme handler script - loaded early to prevent flash of wrong theme -->
     <script src="assets/js/theme-handler.js"></script>
     <!-- Immediate animation start script -->
