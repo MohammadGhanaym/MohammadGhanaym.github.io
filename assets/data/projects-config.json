@@ -1,4 +1,23 @@
 {
+  "about": {
+    "title": "About Me",
+    "paragraphs": [
+      "As a data analyst, I am passionate about transforming raw data into meaningful insights that drive better decision-making. I am constantly developing my skills and have completed various courses to strengthen my expertise in the field.",
+      "My dedication and perseverance led me to work as a freelance data analyst, where I gained valuable experience working with real-world datasets. Freelancing has helped me discover my strengths, especially my ability to meet deadlines, adapt quickly, and learn new tools or techniques when needed. I successfully picked up new skills mid-way in several projects and applied them effectively to deliver meaningful results."
+    ],
+    "details": [
+      {
+        "icon": "fas fa-graduation-cap",
+        "text": "Bachelor's in Computer Engineering"
+      },
+      {
+        "icon": "fas fa-briefcase",
+        "text": "Freelance Data Analyst"
+      }
+    ],
+    "image": "assets/data/Personal Image.png",
+    "imageAlt": "Mohammad Ghanaym"
+  },
   "cv": {
     "downloadPath": "assets/data/Mohamed_Ghanaym_Data_Analyst_CV.pdf",
     "googleDriveUrl": "https://drive.google.com/file/d/1ND62FZfLCk5fkJNlg2xB7-oul97JpX4C/view?usp=sharing"
@@ -34,91 +53,110 @@
   "projects": [
     {
       "id": 1,
+      "title": "Olist E-commerce Data Analytics",
+      "category": "E-commerce",
+      "image": "assets/data/Projects/Olist_Ecommerce/cover_image.PNG",
+      "alt": "Olist E-commerce Analytics Dashboard",
+      "skills": [
+        "Power BI",
+        "Python",
+        "SQL",
+        "SSIS",
+        "SSAS",
+        "SSRS"
+      ],
+      "githubUrl": "https://github.com/MohammadGhanaym/ITI_Graduation_Project_Olist",
+      "PowerBIService": "https://app.powerbi.com/view?r=eyJrIjoiMjhiOGM5MjMtY2M3Yi00MTc2LTkyZWMtZGNiODQ4ZTQ1NGM2IiwidCI6IjJiYjZlNWJjLWMxMDktNDdmYi05NDMzLWMxYzZmNGZhMzNmZiIsImMiOjl9"
+    },
+    {
+      "id": 2,
       "title": "Hotel Bookings Cancellations & Revenue Analytics",
       "category": "Hospitality Analytics",
       "image": "assets/data/Projects/1_Hotel Bookings Cancellations & Revenue Analytics/img/4e559bb2-7f8c-4ee9-8649-7095d9009ed6.gif",
       "alt": "Hotel Bookings Analytics",
       "skills": [
-        { "name": "Power BI", "icon": "fas fa-chart-bar" },
-        { "name": "Python", "icon": "fab fa-python" },
-        { "name": "Data Modeling", "icon": "fas fa-database" },
-        { "name": "Power Query", "icon": "fas fa-search" },
-        { "name": "Dashboard Design", "icon": "fas fa-chart-pie" },
-        { "name": "DAX", "icon": "fas fa-calculator" }
+        "Power BI",
+        "Python",
+        "Data Modeling",
+        "Power Query",
+        "Dashboard Design",
+        "DAX"
       ],
-      "githubUrl": "https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Hotel%20Booking%20Cancellations%20%26%20Revenue%20Analytics"
+      "githubUrl": "https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Hotel%20Booking%20Cancellations%20%26%20Revenue%20Analytics",
+      "PowerBIService": "https://app.powerbi.com/view?r=eyJrIjoiMzI5NGYwMWMtYzA1Zi00NTBmLTg4MGEtODg2ODc0ZTJjNDJkIiwidCI6IjJiYjZlNWJjLWMxMDktNDdmYi05NDMzLWMxYzZmNGZhMzNmZiIsImMiOjl9"
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Addressing Manufacturing Downtime Challenges",
       "category": "Manufacturing",
       "image": "assets/data/Projects/2_Addressing Manufacturing Downtime challenges/img/b0b74dbf-bc51-4421-810d-ef191375cf79.png",
       "alt": "Manufacturing Downtime Challenges",
       "skills": [
-        { "name": "Excel", "icon": "fas fa-file-excel" },
-        { "name": "Power Query", "icon": "fas fa-clipboard-list" },
-        { "name": "Power Pivot", "icon": "fas fa-table" },
-        { "name": "Data Visualization", "icon": "fas fa-chart-pie" }
+        "Excel",
+        "Power Query",
+        "Power Pivot",
+        "Data Visualization"
       ],
       "githubUrl": "https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Addressing%20Manufacturing%20Downtime%20challenges"
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Addressing HR Workforce Challenges",
       "category": "HR Analytics",
       "image": "assets/data/Projects/3_Addressing HR Workforce Challenges/img/Dashboard.gif",
       "alt": "HR Workforce Challenges",
       "skills": [
-        { "name": "Power BI", "icon": "fas fa-chart-bar" },
-        { "name": "Power Query", "icon": "fas fa-search" },
-        { "name": "DAX", "icon": "fas fa-calculator" },
-        { "name": "Dashboard Design", "icon": "fas fa-chart-pie" },
-        { "name": "Data Modeling", "icon": "fas fa-database" }
+        "Power BI",
+        "Power Query",
+        "DAX",
+        "Dashboard Design",
+        "Data Modeling"
       ],
-      "githubUrl": "https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Addressing%20HR%20Workforce%20Challenges"
+      "githubUrl": "https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Addressing%20HR%20Workforce%20Challenges",
+      "PowerBIService": "https://app.powerbi.com/view?r=eyJrIjoiM2NkODFkOGMtNDU3NS00YzEzLWExZGEtMjZhOTQ3ZDU4MmU5IiwidCI6IjJiYjZlNWJjLWMxMDktNDdmYi05NDMzLWMxYzZmNGZhMzNmZiIsImMiOjl9"
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "E-commerce Analytics: Sales, Customer Behavior & Marketing Insights",
       "category": "E-commerce",
       "image": "assets/data/Projects/4_Analyze E-commerce dataset by Olist/img/d5faa32b-8e0b-4baa-85c2-546f845913c2.png",
       "alt": "E-commerce Analytics",
       "skills": [
-        { "name": "Python", "icon": "fab fa-python" },
-        { "name": "Pandas", "icon": "fas fa-table" },
-        { "name": "NumPy", "icon": "fas fa-calculator" },
-        { "name": "Matplotlib", "icon": "fas fa-chart-line" },
-        { "name": "Seaborn", "icon": "fas fa-chart-area" }
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn"
       ],
       "githubUrl": "https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Analyze%20E-commerce%20dataset%20by%20Olist"
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Supermarket Sales Analysis",
       "category": "Retail Analytics",
       "image": "assets/data/Projects/5_Supermarket Sales Analysis in Python/img/Background.gif",
       "alt": "Supermarket Sales Analysis",
       "skills": [
-        { "name": "Python", "icon": "fab fa-python" },
-        { "name": "Pandas", "icon": "fas fa-table" },
-        { "name": "NumPy", "icon": "fas fa-calculator" },
-        { "name": "Matplotlib", "icon": "fas fa-chart-line" },
-        { "name": "Seaborn", "icon": "fas fa-chart-area" }
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn"
       ],
       "githubUrl": "https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Supermarket%20Sales%20Analysis%20in%20Python"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Customer Personality Analysis",
       "category": "Customer Analysis",
       "image": "assets/data/Projects/6_Customer Personality Analysis/img/Dashboard.gif",
       "alt": "Customer Personality Analysis",
       "skills": [
-        { "name": "Excel", "icon": "fas fa-file-excel" },
-        { "name": "Power Query", "icon": "fas fa-search" },
-        { "name": "Power Pivot", "icon": "fas fa-table" },
-        { "name": "DAX", "icon": "fas fa-calculator" },
-        { "name": "Data Visualization", "icon": "fas fa-chart-pie" }
+        "Excel",
+        "Power Query",
+        "Power Pivot",
+        "DAX",
+        "Data Visualization"
       ],
       "githubUrl": "https://github.com/MohammadGhanaym/Data-Analysis-Projects/tree/main/Customer%20Personality%20Analysis"
     }

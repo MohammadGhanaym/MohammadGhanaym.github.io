@@ -1,13 +1,13 @@
 /**
  * Project cards responsive enhancements
- * Ensures project display works well on all devices
+ * Modern card design with horizontal layout (image left, content right)
  */
 
 /* Project grid responsive layout */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 35px;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    gap: 30px;
     margin: 45px auto 30px;
     padding: 5px;
     max-width: 1300px;
@@ -41,7 +41,7 @@
     color: #555;
     margin-right: 2px;
     margin-left: 2px;
-    min-width: 40px; /* Ensure buttons aren't too small */
+    min-width: 40px;
 }
 
 .filter-btn:hover,
@@ -51,77 +51,74 @@
     transform: translateY(-2px);
 }
 
-/* Project card responsive styling */
+/* Modern horizontal project card design */
 .project-card {
+    display: flex;
+    flex-direction: row;
     position: relative;
     background-color: #ffffff;
-    border-radius: 8px;
+    border-radius: 16px;
     overflow: hidden;
-    transition: transform 0.3s ease;
-    border: 1px solid #eaeaea;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-/* Remove left border and before element */
-.project-card {
-    border-left: none; /* Remove the blue notch */
-    border-radius: 8px; /* Consistent border radius */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    min-height: 260px;
+    border: none;
 }
 
 .project-card::before {
-    display: none; /* Remove the blue notch */
+    display: none;
 }
 
-/* Refined project card design with no shading */
 .project-card:hover {
     transform: translateY(-5px);
-    border-color: #d0d0d0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* Subtle zoom effect on hover */
+/* Project image section (left side) */
+.project-image {
+    flex: 0 0 42%;
+    position: relative;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+}
+
+.project-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
 .project-card:hover .project-bg-img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
-/* Enhanced project info styling for better readability and hierarchy */
+/* Project info section (right side) */
 .project-info {
-    padding: 24px 22px;
+    flex: 1;
+    padding: 24px 28px;
     background-color: #ffffff;
-    border-top: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .project-info h3 {
-    margin-top: 0;
-    font-size: 1.3rem;
+    margin: 0 0 14px 0;
+    font-size: 1.35rem;
     font-weight: 600;
-    color: #333333; /* Explicit dark color for better visibility */
-    margin-bottom: 15px;
-    transition: color 0.3s ease;
+    color: #1e293b;
+    line-height: 1.4;
     font-family: 'Poppins', sans-serif;
-    line-height: 1.3;
-    height: 2.6em; /* Force consistent height for 2 lines */
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-}
-
-/* Add a subtle underline to project titles */
-.project-info h3:after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 2px;
-    background-color: var(--primary-color);
-    margin-top: 6px;
-    opacity: 0.7;
+    letter-spacing: -0.01em;
 }
 
 .project-card:hover .project-info h3 {
-    color: var(--primary-color);
+    color: #3b82f6;
 }
 
 /* Project description styling */
@@ -137,84 +134,104 @@
     display: none;
 }
 
-/* Project tags styling to match skill tags - simple oval design */
+/* Clean skill tags styling - title case with borders */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin: 10px 0;
-    min-height: 70px; /* Ensure consistent space for tags */
+    gap: 8px;
+    margin: 14px 0 18px 0;
 }
 
-/* Match skill tag design exactly - simple oval shape */
+/* Clean bordered tags with white background */
 .project-tags span,
 .project-tags div {
     display: inline-flex;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.78rem !important;
     font-weight: 500;
-    padding: 4px 12px;
-    margin: 1px;
-    border-radius: 50px; /* Changed to rounded/oval shape */
-    background-color: rgba(58, 110, 165, 0.1); /* Light blue background */
-    color: #3a6ea5; /* Text color matches icons */
-    position: relative;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    padding: 6px 14px !important;
+    border-radius: 6px;
+    background-color: #ffffff !important;
+    color: #334155 !important;
+    border: 1.5px solid #e2e8f0 !important;
+    transition: all 0.2s ease;
     letter-spacing: 0.3px;
-    border: none; /* Remove border */
-    transition: none; /* No transitions for non-interactive elements */
+    box-shadow: none !important;
 }
 
-/* Remove the blue notch */
-.project-tags span::before,
-.project-tags div::before {
-    display: none; /* Hide the blue notch */
-}
-
-.project-tags span i,
-.project-tags div i {
-    margin-right: 6px;
-    font-size: 0.85rem;
-    width: 18px;
-    height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #3a6ea5; /* Icon color */
-    background: none; /* Remove icon background */
-    box-shadow: none; /* Remove icon shadow */
-}
-
-/* Ensure absolutely no hover effects */
 .project-tags span:hover,
 .project-tags div:hover {
-    background-color: rgba(58, 110, 165, 0.1);
-    transform: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    border-color: #3b82f6 !important;
+    background-color: #f8fafc !important;
+    color: #1e40af !important;
 }
 
-/* Global style that overrides all specific tag styles for consistent coloring */
-.project-tags span,
-.project-tags div {
-    border-left-color: #3a6ea5 !important;
-    color: var(--text-primary) !important;
-}
-
-.project-tags span::before,
-.project-tags div::before {
-    background: #3a6ea5 !important;
-}
-
+/* Remove icon styles */
 .project-tags span i,
 .project-tags div i {
-    color: #3a6ea5 !important;
-    background: rgba(58, 110, 165, 0.1) !important;
+    display: none !important;
 }
 
-/* Updated view details link with more subtle styling */
+/* Project links container */
+.project-links {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 4px;
+}
+
+/* Modern button styling for GitHub and Power BI links */
+.project-links a {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border: none;
+}
+
+.project-links a i {
+    font-size: 1rem;
+}
+
+/* GitHub button - dark theme */
+.project-links a[href*="github"] {
+    background-color: #24292e;
+    color: #ffffff;
+}
+
+.project-links a[href*="github"]:hover {
+    background-color: #1a1e22;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(36, 41, 46, 0.25);
+}
+
+/* Power BI button - official yellow/gold theme */
+.project-links a[href*="powerbi"],
+.project-links a[href*="Power"] {
+    background-color: #f2c811;
+    color: #1e1e1e;
+}
+
+.project-links a[href*="powerbi"]:hover,
+.project-links a[href*="Power"]:hover {
+    background-color: #e0b900;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(242, 200, 17, 0.35);
+}
+
+/* Legacy link styles - keep for compatibility */
 .view-details-link {
-    display: inline-block;
-    color: #555; /* Less intense color - not blue */
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #3a6ea5;
     font-weight: 500;
     text-decoration: none;
     padding: 6px 0;
@@ -362,16 +379,8 @@
     
     .project-tags span,
     .project-tags div {
-        font-size: 0.75rem;
-        padding: 5px 12px;
-    }
-    
-    .project-tags span i,
-    .project-tags div i {
-        width: 24px;
-        height: 24px;
-        font-size: 0.8rem;
-        margin-right: 6px;
+        font-size: 0.75rem !important;
+        padding: 5px 12px !important;
     }
 }
 
@@ -405,17 +414,9 @@
     
     .project-tags span,
     .project-tags div {
-        font-size: 0.7rem;
-        padding: 4px 10px;
+        font-size: 0.7rem !important;
+        padding: 4px 10px !important;
         margin-bottom: 4px;
-    }
-    
-    .project-tags span i,
-    .project-tags div i {
-        width: 22px;
-        height: 22px;
-        font-size: 0.75rem;
-        margin-right: 5px;
     }
 }
 
@@ -435,61 +436,23 @@
         gap: 4px;
     }
     
-    .project-tags span {
-        font-size: 0.65rem;
-        padding: 3px 8px;
+    .project-tags span,
+    .project-tags div {
+        font-size: 0.65rem !important;
+        padding: 3px 8px !important;
         margin: 1px;
-    }
-    
-    .project-tags span i {
-        width: 18px;
-        height: 18px;
-        font-size: 0.7rem;
-        margin-right: 4px;
     }
 }
 
 /**
- * Project tag styling for data analyst portfolio
- * Matches the styling of skill tags for consistency
+ * Project tag styling - removed conflicting rules
  */
 
-/* Remove technology-specific color styling for project tags to ensure consistent color scheme */
-.project-tags span, 
-.project-tags div,
-.project-tags span i,
-.project-tags div i {
-    color: #3a6ea5; /* Consistent text/icon color */
-    background-color: rgba(58, 110, 165, 0.1); /* Consistent background */
-}
-
-/* Ensure all tags use the same styling regardless of technology */
-.project-tags [class*="tag-"],
-.project-tags span:has(i),
-.project-tags div:has(i) {
-    color: #3a6ea5;
-}
-
-/* Light mode explicit styles to override any dark mode styles that might be applied incorrectly */
+/* Light mode explicit styles */
 :root {
     --project-card-bg: #ffffff;
     --project-tag-bg: #ffffff;
-    --project-text: var(--text-primary);
-}
-
-/* Ensure light mode styles are explicitly set */
-.project-card {
-    background-color: var(--project-card-bg);
-}
-
-.project-info {
-    background-color: var(--project-card-bg);
-}
-
-.project-tags span,
-.project-tags div {
-    background-color: var(--project-tag-bg);
-    color: var(--project-text);
+    --project-text: #334155;
 }
 
 /* Class-based dark mode option for better control */
@@ -512,42 +475,46 @@
 
 .dark-mode .project-tags span,
 .dark-mode .project-tags div {
-    background-color: rgba(58, 110, 165, 0.2) !important;
-    color: #a8c7e8 !important;
-    border: none !important;
+    background-color: #1e293b !important;
+    color: #cbd5e1 !important;
+    border: 1.5px solid #334155 !important;
+}
+
+.dark-mode .project-tags span:hover,
+.dark-mode .project-tags div:hover {
+    background-color: #334155 !important;
+    color: #e2e8f0 !important;
+    border-color: #3b82f6 !important;
 }
 
 .dark-mode .project-tags span i,
 .dark-mode .project-tags div i {
-    background: none !important;
-    color: #a8c7e8 !important;
+    display: none !important;
 }
 
-/* Dark mode support for project tags - only applied when the system is in dark mode */
+/* Dark mode support via media query */
 @media (prefers-color-scheme: dark) {
-    /* Match the .dark-mode class styles for project tags */
     .project-tags span,
     .project-tags div {
-        background-color: rgba(58, 110, 165, 0.2) !important; /* Slightly darker blue background */
-        color: #a8c7e8 !important; /* Lighter blue text for better contrast */
-        border: none !important;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        background-color: #1e293b !important;
+        color: #cbd5e1 !important;
+        border: 1.5px solid #334155 !important;
     }
     
-    .project-tags span i,
-    .project-tags div i {
-        background: none !important;
-        color: #a8c7e8 !important; /* Lighter blue icon for better contrast */
-        box-shadow: none;
+    .project-tags span:hover,
+    .project-tags div:hover {
+        background-color: #334155 !important;
+        color: #e2e8f0 !important;
+        border-color: #3b82f6 !important;
     }
     
     .project-card {
-        background-color: #2a2f3a;
+        background-color: #1e293b;
         border-color: rgba(255, 255, 255, 0.05);
     }
     
     .project-info {
-        background-color: #2a2f3a;
+        background-color: #1e293b;
     }
     
     .project-info h3 {
@@ -557,15 +524,97 @@
     .project-info p {
         color: #b4bac5;
     }
-    
-    .project-links .btn {
-        background-color: #373e4e;
-        color: #d0d5e0;
-        border-color: #484f61;
+}
+
+/* Responsive Design for Horizontal Project Cards */
+@media screen and (max-width: 992px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
     
-    .project-links .btn:hover {
-        background-color: var(--primary-color);
-        color: white;
+    .project-card {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .project-image {
+        flex: 0 0 200px;
+        width: 100%;
+    }
+    
+    .project-info h3 {
+        font-size: 1.25rem;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+    
+    .project-card {
+@media screen and (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+    
+    .project-card {
+        flex-direction: column;
+    }
+    
+    .project-image {
+        flex: 0 0 180px;
+    }
+    
+    .project-info {
+        padding: 20px 18px;
+    }
+    
+    .project-info h3 {
+        font-size: 1.15rem;
+    }
+    
+    .project-tags span,
+    .project-tags div {
+        font-size: 0.7rem !important;
+        padding: 5px 12px !important;
+@media screen and (max-width: 576px) {
+    .project-image {
+        flex: 0 0 150px;
+    }
+    
+    .project-info {
+        padding: 16px;
+    }
+    
+    .project-info h3 {
+        font-size: 1.05rem;
+        margin-bottom: 12px;
+    }
+    
+    .project-tags {
+        gap: 6px;
+        margin: 12px 0;
+    }
+    
+    .project-tags span,
+    .project-tags div {
+        font-size: 0.65rem !important;
+        padding: 4px 10px !important;
+    }
+    
+    .project-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .project-links a {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+    }
+}   }
+}
+    }}
